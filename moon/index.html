@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOON UI Gym - Transform Your Body</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid #667eea;
+            position: relative;
+        }
+        
+        .pricing-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="moon-logo.png" alt="MOON UI" class="h-8 w-auto">
+                    <span class="text-2xl font-bold text-gray-800">MOON UI</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition">Home</a>
+                    <a href="#features" class="text-gray-700 hover:text-purple-600 transition">Features</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition">Pricing</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition">Contact</a>
+                </div>
+                <button class="btn-primary text-white px-6 py-2 rounded-full font-semibold">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                        Transform Your <br>Body with MOON UI
+                    </h1>
+                    <p class="text-xl text-purple-100 mb-8">
+                        Join the best gym in town with state-of-the-art equipment, expert trainers, and a community that motivates you to achieve your fitness goals.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105">
+                            Start Free Trial
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition">
+                            View Membership Plans
+                        </button>
+                    </div>
+                    <div class="mt-12 flex items-center space-x-8">
+                        <div>
+                            <p class="text-3xl font-bold text-white">10,000+</p>
+                            <p class="text-purple-100">Happy Members</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-white">50+</p>
+                            <p class="text-purple-100">Expert Trainers</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-white">24/7</p>
+                            <p class="text-purple-100">Open Hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Gym Workout" class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Why Choose MOON UI?</h2>
+                <p class="text-xl text-gray-600">Everything you need to achieve your fitness goals</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-dumbbell text-4xl feature-icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Modern Equipment</h3>
+                    <p class="text-gray-600">State-of-the-art fitness equipment from top brands to ensure effective workouts</p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-4xl feature-icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Expert Trainers</h3>
+                    <p class="text-gray-600">Certified professionals to guide you through personalized fitness programs</p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-users text-4xl feature-icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Group Classes</h3>
+                    <p class="text-gray-600">Join energizing group classes including yoga, HIIT, dance, and more</p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-clock text-4xl feature-icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">24/7 Access</h3>
+                    <p class="text-gray-600">Work out on your schedule with round-the-clock gym access</p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-heartbeat text-4xl feature-icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Health Tracking</h3>
+                    <p class="text-gray-600">Advanced tracking systems to monitor your progress and achievements</p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-shower text-4xl feature-icon"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Premium Facilities</h3>
+                    <p class="text-gray-600">Clean changing rooms, showers, and relaxation areas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Membership Plans</h2>
+                <p class="text-xl text-gray-600">Choose the plan that fits your fitness journey</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="pricing-card bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Basic</h3>
+                    <p class="text-gray-600 mb-6">Perfect for beginners</p>
+                    <div class="text-4xl font-bold text-gray-800 mb-6">
+                        $29<span class="text-lg text-gray-600">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Access to gym equipment</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Basic fitness assessment</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Mobile app access</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times mr-3"></i>
+                            <span>Personal training</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times mr-3"></i>
+                            <span>Group classes</span>
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-purple-600 text-purple-600 py-3 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition">
+                        Choose Basic
+                    </button>
+                </div>
+                
+                <div class="pricing-card featured bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Premium</h3>
+                    <p class="text-gray-600 mb-6">Most popular choice</p>
+                    <div class="text-4xl font-bold text-gray-800 mb-6">
+                        $59<span class="text-lg text-gray-600">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Everything in Basic</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Unlimited group classes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">4 personal training sessions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Nutrition consultation</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Guest passes (2/month)</span>
+                        </li>
+                    </ul>
+                    <button class="w-full btn-primary text-white py-3 rounded-full font-semibold">
+                        Choose Premium
+                    </button>
+                </div>
+                
+                <div class="pricing-card bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">VIP</h3>
+                    <p class="text-gray-600 mb-6">Ultimate fitness experience</p>
+                    <div class="text-4xl font-bold text-gray-800 mb-6">
+                        $99<span class="text-lg text-gray-600">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Everything in Premium</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Unlimited personal training</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">VIP lounge access</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Priority class booking</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Free guest passes</span>
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-purple-600 text-purple-600 py-3 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition">
+                        Choose VIP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get Started Today</h2>
+                <p class="text-xl text-gray-600">Visit us or contact us for more information</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Visit Our Gym</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-map-marker-alt text-purple-600 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Address</p>
+                                <p class="text-gray-600">123 Fitness Street, Health City, HC 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-phone text-purple-600 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Phone</p>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-envelope text-purple-600 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Email</p>
+                                <p class="text-gray-600">contact@moonui.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-clock text-purple-600 mt-1"></i>
+                            <div>
+                                <p class="font-semibold text-gray-800">Hours</p>
+                                <p class="text-gray-600">Monday - Friday: 5:00 AM - 11:00 PM</p>
+                                <p class="text-gray-600">Saturday - Sunday: 6:00 AM - 10:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-800 mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center hover:bg-purple-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center hover:bg-purple-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center hover:bg-purple-700 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center hover:bg-purple-700 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Free Trial Session</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Full Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Email Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600">
+                            </div>
+                            <div>
+                                <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600">
+                            </div>
+                            <div>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600">
+                                    <option>Select Your Goal</option>
+                                    <option>Weight Loss</option>
+                                    <option>Muscle Building</option>
+                                    <option>General Fitness</option>
+                                    <option>Athletic Performance</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold">
+                                Start Free Trial
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="moon-logo.png" alt="MOON UI" class="h-6 w-auto">
+                        <span class="text-xl font-bold">MOON UI</span>
+                    </div>
+                    <p class="text-gray-400">Transform your body and life with our comprehensive fitness programs.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Classes</a></li>
+                        <li><a href="#" class="hover:text-white transition">Trainers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Membership</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Personal Training</a></li>
+                        <li><a href="#" class="hover:text-white transition">Group Classes</a></li>
+                        <li><a href="#" class="hover:text-white transition">Nutrition Counseling</a></li>
+                        <li><a href="#" class="hover:text-white transition">Physical Therapy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe for fitness tips and special offers</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 bg-gray-800 rounded-l-lg focus:outline-none">
+                        <button class="px-4 py-2 bg-purple-600 rounded-r-lg hover:bg-purple-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 MOON UI Gym. All rights reserved. | <a href="#" class="hover:text-white">Privacy Policy</a> | <a href="#" class="hover:text-white">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you soon.');
+            this.reset();
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
