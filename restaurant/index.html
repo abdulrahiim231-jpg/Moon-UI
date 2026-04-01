@@ -3,273 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Restaurant in the World - Moon Hotel</title>
+    <title>MOON Restaurant - Fine Dining Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            --secondary-gradient: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            --accent-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            --dark-bg: #0a0a0f;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
+
         body {
-            line-height: 1.6;
-            color: #333;
+            background: var(--dark-bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
-        .navbar {
-            background: rgba(0,0,0,0.9);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        /* Modern Background */
+        .modern-bg {
             position: fixed;
             width: 100%;
+            height: 100%;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ff6b35;
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
         }
-        .nav-links {
-            display: flex;
-            list-style: none;
+
+        .orb1 {
+            width: 600px;
+            height: 600px;
+            background: var(--primary-gradient);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
         }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            font-weight: 500;
-            transition: color 0.3s;
+
+        .orb2 {
+            width: 500px;
+            height: 500px;
+            background: var(--secondary-gradient);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 7s;
         }
-        .nav-links a:hover {
-            color: #ff6b35;
+
+        .orb3 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-gradient);
+            top: 50%;
+            left: 50%;
+            animation-delay: 14s;
         }
-        .hero {
-            height: 100vh;
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(100px, -100px) scale(1.1) rotate(90deg); }
+            50% { transform: translate(-100px, 100px) scale(0.9) rotate(180deg); }
+            75% { transform: translate(50px, 50px) scale(1.05) rotate(270deg); }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .glass-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        /* Modern Borders and Glows */
+        .modern-border {
+            border: 1px solid transparent;
+            background: linear-gradient(var(--dark-bg), var(--dark-bg)) padding-box,
+                        var(--accent-gradient) border-box;
+        }
+
+        .accent-glow {
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .accent-glow-hover:hover {
+            box-shadow: 0 0 50px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Typography */
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-2 {
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cards */
+        .modern-card {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+            overflow: hidden;
+            border-radius: 24px;
         }
-        .hero video {
+
+        .modern-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .modern-card:hover::before {
+            left: 100%;
+        }
+
+        /* Hero Video Background */
+        .hero-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.7);
             z-index: -1;
         }
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-        .cta-btn {
-            background: #ff6b35;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-        .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(255,107,53,0.4);
-        }
-        .foods {
-            padding: 5rem 5%;
-            background: #f8f9fa;
-        }
-        .foods h2 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            color: #222;
-        }
-        .food-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .food-card {
-            background: white;
-            border-radius: 20px;
+
+        /* Buttons */
+        .modern-btn {
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
-        .food-card:hover {
-            transform: translateY(-10px);
+
+        .modern-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
-        .food-img {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-            /* Placeholders - replace with real images */
-            /* e.g. background-image: url('burger.jpg'); */
+
+        .modern-btn:hover::before {
+            left: 100%;
         }
-        .food-card h3 {
-            padding: 1.5rem;
-            font-size: 1.5rem;
+
+        /* Navigation */
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .food-card p {
-            padding: 0 1.5rem 1.5rem;
-            color: #666;
-        }
-        .testimonials {
-            padding: 5rem 5%;
-            text-align: center;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
-        }
-        .testimonials h2 {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-        }
-        .testimonial {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-style: italic;
-            font-size: 1.3rem;
-        }
-        .contact {
-            padding: 5rem 5%;
-            text-align: center;
-        }
-        .contact h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px 10px rgba(255, 107, 53, 0.3);
             }
         }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .gradient-orb {
+                filter: blur(100px);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-<div class="logo">🌙 Moon Hotel</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#foods">Menu</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- Modern Background -->
+    <div class="modern-bg">
+        <div class="gradient-orb orb1"></div>
+        <div class="gradient-orb orb2"></div>
+        <div class="gradient-orb orb3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur py-4 px-6">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <h1 class="text-2xl md:text-3xl font-black tracking-tight">
+                <span class="gradient-text">MOON</span><span class="gradient-text-2"> Restaurant</span>
+            </h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-orange-400 transition-colors">Home</a>
+                <a href="#menu" class="text-white hover:text-orange-400 transition-colors">Menu</a>
+                <a href="#testimonials" class="text-white hover:text-orange-400 transition-colors">Reviews</a>
+                <a href="#contact" class="text-white hover:text-orange-400 transition-colors">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero with Video Background -->
-    <section id="home" class="hero">
-        <video autoplay muted loop playsinline>
-            <!-- Free stock video placeholder: replace src with local video or https://example.com/food.mp4 -->
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center">
+        <!-- Video Background -->
+        <video class="hero-video" autoplay muted loop playsinline>
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            Your browser does not support the video tag. <!-- Fallback sample video -->
+            Your browser does not support video tag.
         </video>
-        <div class="hero-content">
-            <h1>The Best Restaurant in the World</h1>
-            <p>Discover exquisite flavors from around the globe</p>
-            <button class="cta-btn" onclick="document.getElementById('foods').scrollIntoView()">View Menu</button>
-        </div>
-    </section>
-
-    <!-- Foods Section -->
-    <section id="foods" class="foods">
-        <h2>Our Signature Dishes</h2>
-        <div class="food-grid">
-            <div class="food-card">
-                <div class="food-img" style="background-image: linear-gradient(45deg, #ff6b35, #f7931e); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🍔</div>
-                <h3>Classic Burger</h3>
-                <p>Juicy beef patty with fresh toppings on a toasted bun. Paired with crispy fries.</p>
-            </div>
-            <div class="food-card">
-                <div class="food-img" style="background-image: linear-gradient(45deg, #4ecdc4, #44a08d); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🍝</div>
-                <h3>Italian Pasta</h3>
-                <p>Handmade pasta with rich tomato sauce and fresh basil. A true Italian delight.</p>
-            </div>
-            <div class="food-card">
-                <div class="food-img" style="background-image: linear-gradient(45deg, #ff9a9e, #fecfef); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🍣</div>
-                <h3>Fresh Sushi</h3>
-                <p>Premium sushi rolls with the finest seafood. Experience authentic Japanese flavors.</p>
-            </div>
-            <div class="food-card">
-                <div class="food-img" style="background-image: linear-gradient(45deg, #a8edea, #fed6e3); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🍕</div>
-                <h3>Woodfire Pizza</h3>
-                <p>Thin crust pizza baked in woodfire oven with premium ingredients.</p>
+        <div class="hero-overlay"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div data-aos="fade-up">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+                    <strong>MOON Restaurant</strong><br>
+                    <span class="gradient-text">Fine Dining Experience</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed">
+                    <strong>Discover exquisite flavors</strong> crafted by our expert chefs using the finest ingredients from around the world
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+                    <button class="modern-btn inline-block px-12 py-6 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-black rounded-2xl hover:from-orange-400 hover:to-red-400 transition-all pulse-animation">
+                        View Menu
+                    </button>
+                    <button class="modern-btn inline-block px-12 py-6 glass border-2 border-white text-white text-lg font-black rounded-2xl hover:bg-white hover:text-orange-500 transition-all">
+                        Make Reservation
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial">
-            "Best restaurant experience ever! The food is divine and service is top-notch."
-            <br><strong>- Foodie Fan</strong>
-        </div>
-        <div class="testimonial">
-            "Different foods from all over the world. Truly the best in the world!"
-            <br><strong>- Happy Diner</strong>
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Our Signature Dishes</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    <strong>Experience culinary excellence</strong> with our carefully crafted menu items
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dish 1 -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+                        <span class="text-6xl">🍔</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Classic Burger</strong></h3>
+                        <p class="text-gray-300 text-sm leading-relaxed text-center">
+                            <strong>Juicy beef patty</strong> with fresh toppings on a toasted bun. Paired with crispy fries.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center">
+                        <span class="text-6xl">🍝</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Italian Pasta</strong></h3>
+                        <p class="text-gray-300 text-sm leading-relaxed text-center">
+                            <strong>Handmade pasta</strong> with rich tomato sauce and fresh basil. A true Italian delight.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center">
+                        <span class="text-6xl">🍣</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Fresh Sushi</strong></h3>
+                        <p class="text-gray-300 text-sm leading-relaxed text-center">
+                            <strong>Premium sushi rolls</strong> with the finest seafood. Experience authentic Japanese flavors.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dish 4 -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                        <span class="text-6xl">🍕</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Woodfire Pizza</strong></h3>
+                        <p class="text-gray-300 text-sm leading-relaxed text-center">
+                            <strong>Thin crust pizza</strong> baked in woodfire oven with premium ingredients.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2>Ready to Dine?</h2>
-        <p>Book a table or order online for the ultimate culinary adventure.</p>
-        <button class="cta-btn" style="font-size: 1.5rem;">Reserve Now</button>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">What Our Customers Say</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    <strong>Real experiences</strong> from our valued customers
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="quote" class="w-8 h-8 text-orange-400 mr-4"></i>
+                        <div>
+                            <h3 class="text-xl font-black text-white"><strong>Sarah Johnson</strong></h3>
+                            <p class="text-gray-400 text-sm">Food Critic</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed italic">
+                        "<strong>Best restaurant experience ever!</strong> The food is divine and service is top-notch. Truly a fine dining masterpiece!"
+                    </p>
+                </div>
+
+                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="star" class="w-8 h-8 text-yellow-400 mr-4"></i>
+                        <div>
+                            <h3 class="text-xl font-black text-white"><strong>Michael Chen</strong></h3>
+                            <p class="text-gray-400 text-sm">Regular Customer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed italic">
+                        "<strong>Exquisite flavors from around the world</strong> Every visit is a culinary adventure. The attention to detail is remarkable!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass rounded-3xl p-12 text-center" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Reserve Your Table</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    <strong>Ready for an unforgettable dining experience?</strong> Contact us to make your reservation
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://wa.me/923006955087?text=Hi%20MOON%20Restaurant%2C%20I%20want%20to%20make%20a%20reservation" target="_blank" class="modern-btn inline-block px-12 py-6 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-black rounded-2xl hover:from-orange-400 hover:to-red-400 transition-all pulse-animation">
+                        Make Reservation
+                    </a>
+                    <a href="mailto:contact@moonui.com" class="modern-btn inline-block px-12 py-6 glass border-2 border-white text-white text-lg font-black rounded-2xl hover:bg-white hover:text-orange-500 transition-all">
+                        Email Us
+                    </a>
+                </div>
+                <div class="mt-8 flex justify-center gap-6">
+                    <a href="https://wa.me/923006955087" target="_blank" class="text-gray-400 hover:text-orange-400 transition-colors">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    </a>
+                    <a href="mailto:contact@moonui.com" class="text-gray-400 hover:text-orange-400 transition-colors">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Moon Hotel. The Best Restaurant in the World. All rights reserved.</p>
+    <footer class="py-16 border-t border-white/10 text-center">
+        <p class="text-sm uppercase tracking-widest font-mono gradient-text mb-2">MOON RESTAURANT</p>
+        <p class="text-xs text-gray-400">Fine Dining Experience | Exquisite Flavors</p>
+        <p class="text-xs text-gray-400 mt-2">Contact: contact@moonui.com</p>
     </footer>
 
     <script>
-        // Smooth scrolling for nav links
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for orbs
+        window.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.gradient-orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 15;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                orb.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
             });
         });
     </script>
