@@ -51,9 +51,8 @@
         body {
             background: var(--dark-bg);
             color: white;
-            overflow-x: hidden;
             font-family: 'Inter', sans-serif;
-            position: relative;
+            overflow-x: hidden;
         }
 
         /* Modern Background */
@@ -109,7 +108,7 @@
             75% { transform: translate(50px, 50px) scale(1.05) rotate(270deg); }
         }
 
-        /* Modern Glassmorphism */
+        /* Glassmorphism */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: blur(30px);
@@ -125,7 +124,7 @@
         .glass-hover:hover {
             background: rgba(255, 255, 255, 0.06);
             border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
+            transform: translateY(-8px);
             box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.5);
         }
 
@@ -146,14 +145,14 @@
 
         /* Typography */
         .gradient-text {
-            background: var(--accent-gradient);
+            background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .gradient-text-2 {
-            background: var(--primary-gradient);
+            background: var(--secondary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -180,91 +179,6 @@
         .modern-card:hover::before {
             left: 100%;
         }
-
-        /* Icon Container */
-        .icon-container {
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .icon-svg {
-            width: 40px;
-            height: 40px;
-            stroke-width: 1.5;
-            stroke: currentColor;
-            transition: all 0.3s ease;
-        }
-
-        .icon-glow {
-            color: rgba(79, 172, 254, 0.8);
-        }
-
-        .icon-glow-hover:hover .icon-svg {
-            color: #4facfe;
-            transform: scale(1.1);
-        }
-
-        /* Service Icons */
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(118, 75, 162, 0.1));
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .service-icon:hover {
-            transform: scale(1.1);
-            border-color: rgba(79, 172, 254, 0.4);
-            box-shadow: 0 8px 32px rgba(79, 172, 254, 0.2);
-        }
-
-        /* Team Section */
-        .team-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(118, 75, 162, 0.05));
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(79, 172, 254, 0.4);
-            box-shadow: 0 16px 40px rgba(79, 172, 254, 0.2);
-        }
-
-        /* Animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
 
         /* Buttons */
         .modern-btn {
@@ -296,21 +210,15 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Coming Soon */
-        .coming-soon {
-            filter: grayscale(1);
-            opacity: 0.5;
-        }
-
         /* Pulse Animation */
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+                box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.7);
             }
             50% {
                 transform: scale(1.05);
-                box-shadow: 0 0 20px 10px rgba(6, 182, 212, 0.3);
+                box-shadow: 0 0 20px 10px rgba(79, 172, 254, 0.3);
             }
         }
 
@@ -318,117 +226,10 @@
             animation: pulse 2s infinite;
         }
 
-        /* Background Glow */
-        .hero-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 600px;
-            background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.15) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Typed.js Cursor */
-        .typed-cursor {
-            color: #06b6d4;
-            font-weight: 900;
-        }
-
-        /* Project Cards Hover Effects */
-        .project-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.5);
-        }
-
-        /* Project Image Placeholder */
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(118, 75, 162, 0.1));
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .project-card:hover .project-image::before {
-            left: 100%;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.6);
-        }
-
-        /* Contact Section */
-        .contact-gradient {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(147, 51, 234, 0.1));
-            border: 1px solid rgba(79, 172, 254, 0.2);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .gradient-orb {
                 filter: blur(100px);
-            }
-            .hero-glow {
-                width: 600px;
-                height: 400px;
-            }
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
             }
         }
     </style>
@@ -447,242 +248,49 @@
             <h1 class="text-2xl md:text-3xl font-black tracking-tight">
                 <span class="gradient-text">MOON</span><span class="gradient-text-2"> UI</span>
             </h1>
-            <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I'm%20interested%20in%20your%20services" target="_blank" class="modern-btn glass px-6 py-3 modern-border rounded-xl font-bold text-sm uppercase tracking-wider accent-glow-hover transition-all">
-                Contact WhatsApp
-            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-blue-400 transition-colors">Home</a>
+                <a href="#projects" class="text-white hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#about" class="text-white hover:text-blue-400 transition-colors">About</a>
+                <a href="#contact" class="text-white hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+            <button class="md:hidden text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 text-center relative">
-        <!-- Background Glow -->
-        <div class="hero-glow"></div>
-        
+    <section id="home" class="pt-32 pb-20 text-center relative min-h-screen flex items-center">
         <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="fade-in-up">
+            <div class="text-center" data-aos="fade-up">
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
-                    I don't just design websites -<br>
-                    <span class="gradient-text" id="typed-text"></span>
+                    <strong>Creative Digital</strong><br>
+                    <span class="gradient-text">Excellence</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                    Clean code, smooth interactions, and layouts that actually make sense. Everything is built to work fast and feel right on every screen. Experiences that convert and delight.
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+                    <strong>Transform your vision into reality</strong> with cutting-edge web development and stunning UI/UX design that captivates and converts
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="400">
-                    <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I%20want%20to%20hire%20you" target="_blank" class="modern-btn inline-block px-12 py-6 bg-cyan-500 text-black text-lg font-bold rounded-2xl hover:bg-cyan-400 transition-all pulse-animation">
-                        Hire Me
-                    </a>
-                    <a href="#projects" class="modern-btn inline-block px-12 py-6 border-2 border-white text-white text-lg font-bold rounded-2xl hover:bg-white hover:text-black transition-all">
-                        View Work
-                    </a>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+                    <button class="modern-btn inline-block px-12 py-6 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-lg font-black rounded-2xl hover:from-blue-400 hover:to-cyan-400 transition-all pulse-animation">
+                        View My Work
+                    </button>
+                    <button class="modern-btn inline-block px-12 py-6 glass border-2 border-white text-white text-lg font-black rounded-2xl hover:bg-white hover:text-blue-500 transition-all">
+                        Get In Touch
+                    </button>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Moon UI Section -->
-    <section class="py-20 px-6" id="why-choose">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 fade-in-up">
-                <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    <span class="gradient-text">Why Choose Moon UI</span>
-                </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    We deliver excellence that transforms your digital presence
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Point 1: Lightning Fast Performance -->
-                <div class="glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-1">
-                    <div class="service-icon mb-6">
-                        <i data-lucide="zap" class="w-8 h-8 text-[#4facfe]"></i>
+                <div class="mt-12 flex justify-center gap-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center">
+                        <div class="text-4xl font-black gradient-text mb-2">50+</div>
+                        <div class="text-gray-400">Projects Completed</div>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-4">Lightning Fast Performance</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Optimized code and cutting-edge architecture ensure your website loads instantly and runs smoothly across all devices, keeping users engaged and reducing bounce rates.
-                    </p>
-                </div>
-
-                <!-- Point 2: AI-Driven Modern Architecture -->
-                <div class="glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-2">
-                    <div class="service-icon mb-6">
-                        <i data-lucide="cpu" class="w-8 h-8 text-[#667eea]"></i>
+                    <div class="text-center">
+                        <div class="text-4xl font-black gradient-text-2 mb-2">100%</div>
+                        <div class="text-gray-400">Client Satisfaction</div>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-4">AI-Driven Modern Architecture</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Leveraging artificial intelligence and modern frameworks to create intelligent, scalable solutions that adapt to user needs and future-proof your digital presence.
-                    </p>
-                </div>
-
-                <!-- Point 3: Conversion-Focused UX -->
-                <div class="glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-3">
-                    <div class="service-icon mb-6">
-                        <i data-lucide="target" class="w-8 h-8 text-[#f093fb]"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4">Conversion-Focused UX</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Every element is strategically designed to guide users toward action. Our user experience expertise turns visitors into customers through intuitive design and psychological triggers.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 fade-in-up">
-                <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    <span class="gradient-text">Our Leadership Team</span>
-                </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Meet the visionary minds behind MOON UI's success
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Moon (Abdul Rahim) -->
-                <div class="team-card p-8 text-center fade-in-up stagger-1">
-                    <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center">
-                        <i data-lucide="crown" class="w-12 h-12 text-white"></i>
-                    </div>
-                    <h3 class="text-3xl font-black mb-2 gradient-text">MOON</h3>
-                    <p class="text-xl text-gray-300 mb-2">Abdul Rahim</p>
-                    <div class="flex justify-center gap-2 mb-4">
-                        <span class="px-3 py-1 bg-cyan-400/20 rounded-full text-sm font-semibold text-cyan-400">Owner</span>
-                        <span class="px-3 py-1 bg-purple-400/20 rounded-full text-sm font-semibold text-purple-400">CEO</span>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed">
-                        Visionary leader with expertise in strategic planning and business development. Driving innovation and excellence in digital solutions.
-                    </p>
-                </div>
-
-                <!-- NOVA -->
-                <div class="team-card p-8 text-center fade-in-up stagger-2">
-                    <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
-                        <i data-lucide="zap" class="w-12 h-12 text-white"></i>
-                    </div>
-                    <h3 class="text-3xl font-black mb-2 gradient-text-2">NOVA</h3>
-                    <div class="flex justify-center gap-2 mb-4">
-                        <span class="px-3 py-1 bg-purple-400/20 rounded-full text-sm font-semibold text-purple-400">MD</span>
-                        <span class="px-3 py-1 bg-pink-400/20 rounded-full text-sm font-semibold text-pink-400">TD</span>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed">
-                        Technical Director with exceptional skills in frontend architecture and team management. Ensuring cutting-edge solutions and operational excellence.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 fade-in-up">
-                <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    <span class="gradient-text">What Our Team Does</span>
-                </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Professional frontend development services with cutting-edge technology and design excellence
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="modern-card glass-hover glass modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-1">
-                    <div class="service-icon">
-                        <i data-lucide="layout" class="w-8 h-8 text-[#4facfe]"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4">Modern Landing Pages</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        High-conversion pages for any business (Gym, Tech, Medical, Agency) with stunning visuals and optimized user journeys.
-                    </p>
-                    <div class="text-sm font-mono text-[#4facfe] opacity-80">
-                        Conversion Rate: 95%+
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="modern-card glass-hover glass modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-2">
-                    <div class="service-icon">
-                        <i data-lucide="briefcase" class="w-8 h-8 text-[#667eea]"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4">Advanced Interactive Portfolios</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        3D-effect, glass-style personal branding for professionals with cutting-edge animations and immersive experiences.
-                    </p>
-                    <div class="text-sm font-mono text-[#667eea] opacity-80">
-                        Client Satisfaction: 100%
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="modern-card glass-hover glass modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-3">
-                    <div class="service-icon">
-                        <i data-lucide="smartphone" class="w-8 h-8 text-[#f093fb]"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4">100% Responsive Design</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Websites that look perfect on iPhone, Android, Tablets, and Laptops with flawless cross-device compatibility.
-                    </p>
-                    <div class="text-sm font-mono text-[#f093fb] opacity-80">
-                        All Devices Supported
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="modern-card glass-hover glass modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-4">
-                    <div class="service-icon">
-                        <i data-lucide="layers" class="w-8 h-8 text-[#4facfe]"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4">Elite UI/UX Architecture</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Clean, stable, and user-friendly layouts with zero overlapping and intuitive navigation patterns.
-                    </p>
-                    <div class="text-sm font-mono text-[#4facfe] opacity-80">
-                        User Experience: A+ Grade
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="modern-card glass-hover glass modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-5">
-                    <div class="service-icon">
-                        <i data-lucide="sparkles" class="w-8 h-8 text-[#667eea]"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4">Premium Glassmorphism</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Signature transparent "Mirror" look with high-end background blurs and sophisticated visual effects.
-                    </p>
-                    <div class="text-sm font-mono text-[#667eea] opacity-80">
-                        Design Quality: Premium
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="modern-card glass-hover glass modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-6">
-                    <div class="service-icon">
-                        <i data-lucide="mouse-pointer" class="w-8 h-8 text-[#f093fb]"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4">Fully Functional Buttons</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        All links, WhatsApp triggers, and navigation working 100% with smooth interactions and instant responses.
-                    </p>
-                    <div class="text-sm font-mono text-[#f093fb] opacity-80">
-                        Functionality: 100%
-                    </div>
-                </div>
-
-                <!-- Service 7 -->
-                <div class="modern-card glass-hover glass modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-1">
-                    <div class="service-icon">
-                        <i data-lucide="code" class="w-8 h-8 text-[#4facfe]"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4">Complete Frontend Development</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Cutting-edge code using Tailwind CSS, React, and Modern Libraries with best practices and optimization.
-                    </p>
-                    <div class="text-sm font-mono text-[#4facfe] opacity-80">
-                        Technology Stack: Latest
+                    <div class="text-center">
+                        <div class="text-4xl font-black gradient-text mb-2">24/7</div>
+                        <div class="text-gray-400">Support Available</div>
                     </div>
                 </div>
             </div>
@@ -690,129 +298,232 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="py-20 px-6" id="projects">
+    <section id="projects" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 fade-in-up">
+            <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    <span class="gradient-text">Our Projects</span>
+                    <span class="gradient-text">Featured Projects</span>
                 </h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Explore our portfolio of innovative digital solutions
+                    <strong>Discover my latest work</strong> showcasing modern design and development excellence
                 </p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Project 1 FITZONE GYM -->
-                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image">
-                        <i data-lucide="dumbbell" class="w-16 h-16 text-[#4facfe]" loading="lazy"></i>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 - Gym -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+                        <i data-lucide="dumbbell" class="w-16 h-16 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-4 text-center">FITZONE GYM</h3>
-                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Premium gym management platform with advanced UI/UX.</p>
-                    <div class="text-center">
-                        <a href="moon/index.html" class="modern-btn inline-block px-6 py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">
-                            View Project
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3"><strong>FitZone Gym</strong></h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            <strong>Premium fitness platform</strong> with modern glassmorphism design and comprehensive member management
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-semibold">HTML5</span>
+                            <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-xs font-semibold">TailwindCSS</span>
+                            <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs font-semibold">Glassmorphism</span>
+                        </div>
+                        <a href="moon/index.html" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                            <span class="font-semibold">View Project</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 2 MOON RESTAURANT -->
-                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <i data-lucide="chef-hat" class="w-16 h-16 text-[#667eea]" loading="lazy"></i>
+                <!-- Project 2 - Restaurant -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+                        <i data-lucide="utensils" class="w-16 h-16 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-4 text-center">MOON RESTAURANT</h3>
-                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Futuristic restaurant experience with immersive graphics.</p>
-                    <div class="text-center">
-                        <a href="restaurant/index.html" class="modern-btn inline-block px-6 py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">
-                            View Project
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3"><strong>Moon Restaurant</strong></h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            <strong>Elegant dining experience</strong> with video backgrounds and sophisticated menu presentation
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold">HTML5</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-semibold">TailwindCSS</span>
+                            <span class="px-3 py-1 bg-amber-500/20 text-amber-400 rounded-full text-xs font-semibold">Video BG</span>
+                        </div>
+                        <a href="restaurant/index.html" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                            <span class="font-semibold">View Project</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 3 NAYAPAY PORTAL -->
-                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <i data-lucide="credit-card" class="w-16 h-16 text-[#f093fb]" loading="lazy"></i>
+                <!-- Project 3 - AI Agent -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                        <i data-lucide="bot" class="w-16 h-16 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-4 text-center">NAYAPAY PORTAL</h3>
-                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Secure payment portal with modern design.</p>
-                    <div class="text-center">
-                        <a href="https://www.nayapay.com/app/pay?account=03006955087" target="_blank" class="modern-btn inline-block px-6 py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">
-                            View Project
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3"><strong>AI Agent</strong></h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            <strong>Intelligent automation platform</strong> with advanced AI capabilities and modern interface
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-semibold">HTML5</span>
+                            <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs font-semibold">JavaScript</span>
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold">AI/ML</span>
+                        </div>
+                        <a href="ai landing page/index.html" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                            <span class="font-semibold">View Project</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 4 AI AGENT -->
-                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-image">
-                        <i data-lucide="bot" class="w-16 h-16 text-[#4facfe]" loading="lazy"></i>
+                <!-- Project 4 - E-Commerce -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                        <i data-lucide="shopping-cart" class="w-16 h-16 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-4 text-center">AI AGENT</h3>
-                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Advanced AI Agent with intelligent automation.</p>
-                    <div class="text-center">
-                        <a href="ai landing page/index.html" class="modern-btn inline-block px-6 py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">
-                            View Project
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 5 SaaS DASHBOARD -->
-                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="500">
-                    <div class="project-image">
-                        <i data-lucide="bar-chart-3" class="w-16 h-16 text-[#667eea]" loading="lazy"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-white mb-4 text-center">SaaS DASHBOARD</h3>
-                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Professional SaaS Dashboard with analytics.</p>
-                    <div class="text-center">
-                        <span class="modern-btn inline-block px-6 py-3 glass border border-white/20 text-gray-400 font-bold rounded-xl cursor-not-allowed">
-                            Coming Soon
-                        </span>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3"><strong>E-Commerce Pro</strong></h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            <strong>Modern online store</strong> with shopping cart, payment integration, and inventory management
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-semibold">React</span>
+                            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-semibold">Node.js</span>
+                            <span class="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs font-semibold">MongoDB</span>
+                        </div>
+                        <button class="inline-flex items-center text-gray-400 cursor-not-allowed">
+                            <span class="font-semibold">Coming Soon</span>
+                            <i data-lucide="clock" class="w-4 h-4 ml-2"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Project 6 E-COMMERCE -->
-                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="600">
-                    <div class="project-image">
-                        <i data-lucide="shopping-cart" class="w-16 h-16 text-[#f093fb]" loading="lazy"></i>
+                <!-- Project 5 - Dashboard -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                        <i data-lucide="bar-chart-3" class="w-16 h-16 text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-4 text-center">E-COMMERCE</h3>
-                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Modern e-commerce platform with seamless checkout.</p>
-                    <div class="text-center">
-                        <span class="modern-btn inline-block px-6 py-3 glass border border-white/20 text-gray-400 font-bold rounded-xl cursor-not-allowed">
-                            Coming Soon
-                        </span>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3"><strong>Analytics Dashboard</strong></h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            <strong>Data visualization platform</strong> with real-time analytics and interactive charts
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-xs font-semibold">Vue.js</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-semibold">D3.js</span>
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold">Charts</span>
+                        </div>
+                        <button class="inline-flex items-center text-gray-400 cursor-not-allowed">
+                            <span class="font-semibold">Coming Soon</span>
+                            <i data-lucide="clock" class="w-4 h-4 ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Social Media -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl overflow-hidden accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="600">
+                    <div class="h-48 bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center">
+                        <i data-lucide="users" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3"><strong>Social Connect</strong></h3>
+                        <p class="text-gray-300 text-sm mb-4">
+                            <strong>Social networking platform</strong> with real-time messaging and content sharing
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-rose-500/20 text-rose-400 rounded-full text-xs font-semibold">Next.js</span>
+                            <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs font-semibold">Socket.io</span>
+                            <span class="px-3 py-1 bg-fuchsia-500/20 text-fuchsia-400 rounded-full text-xs font-semibold">Real-time</span>
+                        </div>
+                        <button class="inline-flex items-center text-gray-400 cursor-not-allowed">
+                            <span class="font-semibold">Coming Soon</span>
+                            <i data-lucide="clock" class="w-4 h-4 ml-2"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="py-20 px-6" id="contact">
-        <div class="max-w-4xl mx-auto">
-            <div class="contact-gradient glass rounded-3xl p-12 text-center" data-aos="fade-up">
+    <!-- Why Choose Moon UI Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    <span class="gradient-text">Ready to Start Your Project?</span>
+                    <span class="gradient-text">Why Choose Moon UI?</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    <strong>Experience the difference</strong> with our unique approach to web development
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i data-lucide="code" class="w-10 h-10 text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Clean Code</strong></h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-center">
+                        <strong>Well-structured, maintainable code</strong> that follows industry best practices and ensures long-term scalability
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i data-lucide="zap" class="w-10 h-10 text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Lightning Fast</strong></h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-center">
+                        <strong>Optimized for speed and performance</strong> with cutting-edge techniques and modern development practices
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i data-lucide="smartphone" class="w-10 h-10 text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Fully Responsive</strong></h3>
+                    <p class="text-gray-300 text-sm leading-relaxed text-center">
+                        <strong>Perfect on all devices</strong> from mobile phones to large desktop screens with seamless user experience
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass rounded-3xl p-12 text-center" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Let's Work Together</span>
                 </h2>
                 <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                    Let's create something amazing together. Transform your ideas into reality with our expert development team.
+                    <strong>Ready to bring your vision to life?</strong> Get in touch and let's create something amazing together.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I%20want%20to%20start%20my%20project" target="_blank" class="modern-btn inline-block px-12 py-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-black text-lg font-bold rounded-2xl hover:from-cyan-400 hover:to-blue-400 transition-all pulse-animation">
+                    <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I%20want%20to%20discuss%20a%20project" target="_blank" class="modern-btn inline-block px-12 py-6 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-lg font-black rounded-2xl hover:from-blue-400 hover:to-cyan-400 transition-all pulse-animation">
                         Start Your Project
                     </a>
-                    <a href="mailto:contact@moonui.com" class="modern-btn inline-block px-12 py-6 border-2 border-white text-white text-lg font-bold rounded-2xl hover:bg-white hover:text-black transition-all">
-                        Email Us
+                    <a href="mailto:contact@moonui.com" class="modern-btn inline-block px-12 py-6 glass border-2 border-white text-white text-lg font-black rounded-2xl hover:bg-white hover:text-blue-500 transition-all">
+                        Send Email
                     </a>
                 </div>
                 <div class="mt-8 flex justify-center gap-6">
-                    <a href="https://wa.me/923006955087" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                    <a href="https://wa.me/923006955087" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors">
                         <i data-lucide="message-circle" class="w-6 h-6"></i>
                     </a>
-                    <a href="mailto:contact@moonui.com" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                    <a href="mailto:contact@moonui.com" class="text-gray-400 hover:text-blue-400 transition-colors">
                         <i data-lucide="mail" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
                     </a>
                 </div>
             </div>
@@ -821,15 +532,10 @@
 
     <!-- Footer -->
     <footer class="py-16 border-t border-white/10 text-center">
-        <p class="text-sm uppercase tracking-widest font-mono gradient-text mb-2">MOON UI TEAM</p>
-        <p class="text-xs text-gray-400">Moon (Abdul Rahim) - Owner/CEO | NOVA - MD/TD</p>
-        <p class="text-xs text-gray-400 mt-2">Contact: 0300 6955087</p>
+        <p class="text-sm uppercase tracking-widest font-mono gradient-text mb-2">MOON UI</p>
+        <p class="text-xs text-gray-400">Creative Digital Excellence | Modern Web Solutions</p>
+        <p class="text-xs text-gray-400 mt-2">Contact: contact@moonui.com</p>
     </footer>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop">
-        <i data-lucide="arrow-up" class="w-6 h-6 text-white"></i>
-    </div>
 
     <script>
         // Initialize AOS
@@ -841,67 +547,6 @@
 
         // Initialize Lucide icons
         lucide.createIcons();
-
-        // Initialize Typed.js
-        new Typed('#typed-text', {
-            strings: ['I build them properly.', 'I optimize for performance.', 'I design for conversion.', 'I craft with Clean Code.'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            backDelay: 2000,
-            loop: true,
-            showCursor: true,
-            cursorChar: '|'
-        });
-
-        // Back to Top Button
-        const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        function copyAccount() {
-            navigator.clipboard.writeText('0300 6955087').then(() => {
-                const btn = event.target;
-                btn.textContent = 'Copied!';
-                btn.classList.add('bg-[rgba(79,172,254,0.2)]');
-                setTimeout(() => {
-                    btn.textContent = 'Copy Account';
-                    btn.classList.remove('bg-[rgba(79,172,254,0.2)]');
-                }, 1500);
-            });
-        }
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
