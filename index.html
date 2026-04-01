@@ -6,6 +6,9 @@
     <title>MOON UI - Professional Tech Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- SVG Icons -->
     <svg style="display: none;">
@@ -299,10 +302,133 @@
             opacity: 0.5;
         }
 
+        /* Pulse Animation */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px 10px rgba(6, 182, 212, 0.3);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        /* Background Glow */
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.15) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Typed.js Cursor */
+        .typed-cursor {
+            color: #06b6d4;
+            font-weight: 900;
+        }
+
+        /* Project Cards Hover Effects */
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.5);
+        }
+
+        /* Project Image Placeholder */
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(118, 75, 162, 0.1));
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .project-card:hover .project-image::before {
+            left: 100%;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.6);
+        }
+
+        /* Contact Section */
+        .contact-gradient {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(147, 51, 234, 0.1));
+            border: 1px solid rgba(79, 172, 254, 0.2);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .gradient-orb {
                 filter: blur(100px);
+            }
+            .hero-glow {
+                width: 600px;
+                height: 400px;
+            }
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
@@ -328,19 +454,76 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-32 text-center relative">
+    <section class="pt-32 pb-20 text-center relative">
+        <!-- Background Glow -->
+        <div class="hero-glow"></div>
+        
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="fade-in-up">
-                <h1 class="text-6xl md:text-8xl lg:text-9xl font-black leading-tight mb-8">
-                    <span class="gradient-text">MOON</span><br>
-                    <span class="gradient-text-2">UI</span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+                    I don't just design websites -<br>
+                    <span class="gradient-text" id="typed-text"></span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                    Elite frontend development team delivering cutting-edge digital experiences with modern architecture and premium design systems.
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    Clean code, smooth interactions, and layouts that actually make sense. Everything is built to work fast and feel right on every screen. Experiences that convert and delight.
                 </p>
-                <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I'm%20interested%20in%20your%20work" target="_blank" class="modern-btn inline-block glass px-12 py-6 modern-border text-lg font-bold rounded-2xl accent-glow accent-glow-hover transition-all">
-                    Contact MOON UI
-                </a>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I%20want%20to%20hire%20you" target="_blank" class="modern-btn inline-block px-12 py-6 bg-cyan-500 text-black text-lg font-bold rounded-2xl hover:bg-cyan-400 transition-all pulse-animation">
+                        Hire Me
+                    </a>
+                    <a href="#projects" class="modern-btn inline-block px-12 py-6 border-2 border-white text-white text-lg font-bold rounded-2xl hover:bg-white hover:text-black transition-all">
+                        View Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Moon UI Section -->
+    <section class="py-20 px-6" id="why-choose">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Why Choose Moon UI</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    We deliver excellence that transforms your digital presence
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Point 1: Lightning Fast Performance -->
+                <div class="glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-1">
+                    <div class="service-icon mb-6">
+                        <i data-lucide="zap" class="w-8 h-8 text-[#4facfe]"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-4">Lightning Fast Performance</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Optimized code and cutting-edge architecture ensure your website loads instantly and runs smoothly across all devices, keeping users engaged and reducing bounce rates.
+                    </p>
+                </div>
+
+                <!-- Point 2: AI-Driven Modern Architecture -->
+                <div class="glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-2">
+                    <div class="service-icon mb-6">
+                        <i data-lucide="cpu" class="w-8 h-8 text-[#667eea]"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-4">AI-Driven Modern Architecture</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Leveraging artificial intelligence and modern frameworks to create intelligent, scalable solutions that adapt to user needs and future-proof your digital presence.
+                    </p>
+                </div>
+
+                <!-- Point 3: Conversion-Focused UX -->
+                <div class="glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover fade-in-up stagger-3">
+                    <div class="service-icon mb-6">
+                        <i data-lucide="target" class="w-8 h-8 text-[#f093fb]"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-4">Conversion-Focused UX</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Every element is strategically designed to guide users toward action. Our user experience expertise turns visitors into customers through intuitive design and psychological triggers.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -507,7 +690,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="py-20 px-6">
+    <section class="py-20 px-6" id="projects">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20 fade-in-up">
                 <h2 class="text-4xl md:text-5xl font-black mb-6">
@@ -518,66 +701,119 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Project 1 FITZONE GYM -->
-                <a href="moon/index.html" class="modern-card glass-hover h-full flex flex-col glass modern-border rounded-3xl p-10 accent-glow accent-glow-hover group fade-in-up stagger-1">
-                    <div class="icon-container glass border-white/10 rounded-2xl mb-8 mx-auto icon-glow-hover">
-                        <svg class="icon-svg" fill="none" viewBox="0 0 24 24"><use href="#dumbbell"></use></svg>
+                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <i data-lucide="dumbbell" class="w-16 h-16 text-[#4facfe]" loading="lazy"></i>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-black text-white mb-6 text-center tracking-tight group-hover:text-[rgba(79,172,254,0.8)] transition-colors">FITZONE GYM</h3>
-                    <p class="text-gray-300 mb-10 text-center flex-1 leading-relaxed">Premium gym management platform with advanced UI/UX.</p>
-                    <div class="border-t border-white/10 pt-8">
-                        <span class="modern-btn w-full block px-8 py-4 modern-border rounded-2xl font-bold uppercase tracking-wider text-center accent-glow-hover transition-all cursor-pointer">View Project</span>
+                    <h3 class="text-2xl font-black text-white mb-4 text-center">FITZONE GYM</h3>
+                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Premium gym management platform with advanced UI/UX.</p>
+                    <div class="text-center">
+                        <a href="moon/index.html" class="modern-btn inline-block px-6 py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">
+                            View Project
+                        </a>
                     </div>
-                </a>
+                </div>
 
                 <!-- Project 2 MOON RESTAURANT -->
-                <a href="restaurant/index.html" class="modern-card glass-hover h-full flex flex-col glass modern-border rounded-3xl p-10 accent-glow accent-glow-hover group fade-in-up stagger-2">
-                    <div class="icon-container glass border-white/10 rounded-2xl mb-8 mx-auto icon-glow-hover">
-                        <svg class="icon-svg" fill="none" viewBox="0 0 24 24"><use href="#chef-hat"></use></svg>
+                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <i data-lucide="chef-hat" class="w-16 h-16 text-[#667eea]" loading="lazy"></i>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-black text-white mb-6 text-center tracking-tight group-hover:text-[rgba(79,172,254,0.8)] transition-colors">MOON RESTAURANT</h3>
-                    <p class="text-gray-300 mb-10 text-center flex-1 leading-relaxed">Futuristic restaurant experience with immersive graphics.</p>
-                    <div class="border-t border-white/10 pt-8">
-                        <span class="modern-btn w-full block px-8 py-4 modern-border rounded-2xl font-bold uppercase tracking-wider text-center accent-glow-hover transition-all cursor-pointer">View Project</span>
+                    <h3 class="text-2xl font-black text-white mb-4 text-center">MOON RESTAURANT</h3>
+                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Futuristic restaurant experience with immersive graphics.</p>
+                    <div class="text-center">
+                        <a href="restaurant/index.html" class="modern-btn inline-block px-6 py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">
+                            View Project
+                        </a>
                     </div>
-                </a>
+                </div>
 
                 <!-- Project 3 NAYAPAY PORTAL -->
-                <div class="modern-card glass-hover h-full flex flex-col glass modern-border rounded-3xl p-10 accent-glow accent-glow-hover group fade-in-up stagger-3">
-                    <div class="icon-container glass border-white/10 rounded-2xl mb-8 mx-auto icon-glow-hover">
-                        <svg class="icon-svg" fill="none" viewBox="0 0 24 24"><use href="#credit-card"></use></svg>
+                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <i data-lucide="credit-card" class="w-16 h-16 text-[#f093fb]" loading="lazy"></i>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-black text-white mb-6 text-center tracking-tight group-hover:text-[rgba(79,172,254,0.8)] transition-colors">NAYAPAY PORTAL</h3>
-                    <p class="text-gray-300 mb-10 text-center flex-1 leading-relaxed">Secure payment portal. Account: <span class="font-mono gradient-text font-bold">0300 6955087</span></p>
-                    <div class="border-t border-white/10 pt-8 space-y-3">
-                        <a href="https://www.nayapay.com/app/pay?account=03006955087" target="_blank" class="modern-btn w-full block px-8 py-4 modern-border rounded-2xl font-bold uppercase tracking-wider text-center accent-glow-hover transition-all">Pay Now</a>
-                        <button onclick="copyAccount()" class="modern-btn w-full glass px-8 py-2 modern-border rounded-xl font-bold text-xs tracking-wider text-center accent-glow-hover transition-all cursor-pointer">Copy Account</button>
+                    <h3 class="text-2xl font-black text-white mb-4 text-center">NAYAPAY PORTAL</h3>
+                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Secure payment portal with modern design.</p>
+                    <div class="text-center">
+                        <a href="https://www.nayapay.com/app/pay?account=03006955087" target="_blank" class="modern-btn inline-block px-6 py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">
+                            View Project
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 4 AI AGENT -->
-                <div class="modern-card glass-hover h-full flex flex-col glass modern-border rounded-3xl p-10 accent-glow accent-glow-hover coming-soon group fade-in-up stagger-4">
-                    <div class="icon-container glass border-white/10 rounded-2xl mb-8 mx-auto icon-glow-hover">
-                        <svg class="icon-svg" fill="none" viewBox="0 0 24 24"><use href="#bot"></use></svg>
+                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image">
+                        <i data-lucide="bot" class="w-16 h-16 text-[#4facfe]" loading="lazy"></i>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-black mb-6 text-center tracking-tight">AI AGENT</h3>
-                    <p class="mb-10 text-center flex-1 leading-relaxed opacity-70">Advanced AI Agent - Coming Soon</p>
-                    <div class="border-t border-white/10 pt-8">
-                        <span class="w-full block px-8 py-4 modern-border rounded-2xl font-bold uppercase tracking-wider text-center opacity-50 cursor-not-allowed">Coming Soon</span>
+                    <h3 class="text-2xl font-black text-white mb-4 text-center">AI AGENT</h3>
+                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Advanced AI Agent with intelligent automation.</p>
+                    <div class="text-center">
+                        <a href="ai landing page/index.html" class="modern-btn inline-block px-6 py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all">
+                            View Project
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 5 SaaS DASHBOARD -->
-                <div class="modern-card glass-hover h-full flex flex-col glass modern-border rounded-3xl p-10 accent-glow accent-glow-hover coming-soon group fade-in-up stagger-1">
-                    <div class="icon-container glass border-white/10 rounded-2xl mb-8 mx-auto icon-glow-hover">
-                        <svg class="icon-svg" fill="none" viewBox="0 0 24 24"><use href="#bar-chart-3"></use></svg>
+                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image">
+                        <i data-lucide="bar-chart-3" class="w-16 h-16 text-[#667eea]" loading="lazy"></i>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-black mb-6 text-center tracking-tight">SaaS DASHBOARD</h3>
-                    <p class="mb-10 text-center flex-1 leading-relaxed opacity-70">Professional SaaS Dashboard - Coming Soon</p>
-                    <div class="border-t border-white/10 pt-8">
-                        <span class="w-full block px-8 py-4 modern-border rounded-2xl font-bold uppercase tracking-wider text-center opacity-50 cursor-not-allowed">Coming Soon</span>
+                    <h3 class="text-2xl font-black text-white mb-4 text-center">SaaS DASHBOARD</h3>
+                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Professional SaaS Dashboard with analytics.</p>
+                    <div class="text-center">
+                        <span class="modern-btn inline-block px-6 py-3 glass border border-white/20 text-gray-400 font-bold rounded-xl cursor-not-allowed">
+                            Coming Soon
+                        </span>
                     </div>
+                </div>
+
+                <!-- Project 6 E-COMMERCE -->
+                <div class="project-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-image">
+                        <i data-lucide="shopping-cart" class="w-16 h-16 text-[#f093fb]" loading="lazy"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white mb-4 text-center">E-COMMERCE</h3>
+                    <p class="text-gray-300 mb-6 text-center leading-relaxed">Modern e-commerce platform with seamless checkout.</p>
+                    <div class="text-center">
+                        <span class="modern-btn inline-block px-6 py-3 glass border border-white/20 text-gray-400 font-bold rounded-xl cursor-not-allowed">
+                            Coming Soon
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-6" id="contact">
+        <div class="max-w-4xl mx-auto">
+            <div class="contact-gradient glass rounded-3xl p-12 text-center" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Ready to Start Your Project?</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Let's create something amazing together. Transform your ideas into reality with our expert development team.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I%20want%20to%20start%20my%20project" target="_blank" class="modern-btn inline-block px-12 py-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-black text-lg font-bold rounded-2xl hover:from-cyan-400 hover:to-blue-400 transition-all pulse-animation">
+                        Start Your Project
+                    </a>
+                    <a href="mailto:contact@moonui.com" class="modern-btn inline-block px-12 py-6 border-2 border-white text-white text-lg font-bold rounded-2xl hover:bg-white hover:text-black transition-all">
+                        Email Us
+                    </a>
+                </div>
+                <div class="mt-8 flex justify-center gap-6">
+                    <a href="https://wa.me/923006955087" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    </a>
+                    <a href="mailto:contact@moonui.com" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -590,8 +826,50 @@
         <p class="text-xs text-gray-400 mt-2">Contact: 0300 6955087</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i data-lucide="arrow-up" class="w-6 h-6 text-white"></i>
+    </div>
+
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Lucide icons
         lucide.createIcons();
+
+        // Initialize Typed.js
+        new Typed('#typed-text', {
+            strings: ['I build them properly.', 'I optimize for performance.', 'I design for conversion.', 'I craft with Clean Code.'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
         function copyAccount() {
             navigator.clipboard.writeText('0300 6955087').then(() => {
