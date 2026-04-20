@@ -249,23 +249,18 @@
             </h1>
             
             <!-- Mobile Menu Button -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2 z-50 relative">
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
             
             <!-- Navigation Sections -->
-            <div id="mobileMenu" class="hidden fixed inset-0 bg-black/95 z-40 md:relative md:bg-transparent md:inset-auto md:flex md:flex-row md:items-center md:justify-between md:space-x-8">
-                <!-- Mobile Close Button -->
-                <button onclick="closeMobileMenu()" class="md:hidden absolute top-4 right-4 text-white p-2">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-                
+            <div id="mobileMenu" class="hidden fixed inset-x-0 top-full bg-black/95 z-40 md:relative md:bg-transparent md:inset-auto md:flex md:flex-row md:items-center md:justify-between md:space-x-8">
                 <!-- Navigation Links -->
-                <div class="flex flex-col items-center justify-center h-full md:flex-row md:items-center md:space-x-8">
-                    <a href="#menu" onclick="closeMobileMenu()" class="text-white hover:text-yellow-400 transition-colors block py-4 md:py-0 md:inline text-lg md:text-base">The Menu</a>
-                    <a href="#experience" onclick="closeMobileMenu()" class="text-white hover:text-yellow-400 transition-colors block py-4 md:py-0 md:inline text-lg md:text-base">The Experience</a>
-                    <a href="#chefs" onclick="closeMobileMenu()" class="text-white hover:text-yellow-400 transition-colors block py-4 md:py-0 md:inline text-lg md:text-base">Chef's Table</a>
-                    <a href="#private" onclick="closeMobileMenu()" class="text-white hover:text-yellow-400 transition-colors block py-4 md:py-0 md:inline text-lg md:text-base">Private Dining</a>
+                <div class="flex flex-col md:flex-row md:items-center md:space-x-8">
+                    <a href="#menu" onclick="closeMobileMenu(); smoothScrollToSection('menu')" class="text-white hover:text-yellow-400 transition-colors block py-4 md:py-0 md:inline text-lg md:text-base">The Menu</a>
+                    <a href="#experience" onclick="closeMobileMenu(); smoothScrollToSection('experience')" class="text-white hover:text-yellow-400 transition-colors block py-4 md:py-0 md:inline text-lg md:text-base">The Experience</a>
+                    <a href="#chefs" onclick="closeMobileMenu(); smoothScrollToSection('chefs')" class="text-white hover:text-yellow-400 transition-colors block py-4 md:py-0 md:inline text-lg md:text-base">Chef's Table</a>
+                    <a href="#private" onclick="closeMobileMenu(); smoothScrollToSection('private')" class="text-white hover:text-yellow-400 transition-colors block py-4 md:py-0 md:inline text-lg md:text-base">Private Dining</a>
                 </div>
             </div>
             
@@ -600,6 +595,16 @@
         function closeMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.classList.add('hidden');
+        }
+
+        function smoothScrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
 
         // Back to Top functionality
