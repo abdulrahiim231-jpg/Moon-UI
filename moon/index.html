@@ -222,15 +222,44 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 nav-blur py-4 px-6">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <h1 class="text-2xl md:text-3xl font-black tracking-tight">
-                <span class="gradient-text">MOON</span><span class="gradient-text-2"> UI</span>
-            </h1>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-white hover:text-orange-400 transition-colors">Home</a>
-                <a href="#features" class="text-white hover:text-orange-400 transition-colors">Features</a>
-                <a href="#pricing" class="text-white hover:text-orange-400 transition-colors">Pricing</a>
-                <a href="#contact" class="text-white hover:text-orange-400 transition-colors">Contact</a>
+            <!-- Logo with Neon Blue Glow -->
+            <div class="flex items-center">
+                <h1 class="text-2xl md:text-3xl font-black tracking-tight relative">
+                    <span class="text-white">MOON UI</span>
+                    <span class="text-gray-400 mx-2">|</span>
+                    <span class="text-white">GYM</span>
+                    <!-- Neon Blue Glow Effect -->
+                    <div class="absolute inset-0 z-[-1]">
+                        <div class="w-full h-full bg-gradient-to-r from-blue-500/30 via-cyan-500/30 to-blue-500/30 blur-md"></div>
+                    </div>
+                </h1>
             </div>
+            
+            <!-- Navigation Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#membership" class="text-white hover:text-cyan-400 transition-colors font-medium">Membership</a>
+                <a href="#features" class="text-white hover:text-cyan-400 transition-colors font-medium">Features</a>
+                <a href="#lab" class="text-white hover:text-cyan-400 transition-colors font-medium">The Lab</a>
+                <a href="#tribe" class="text-white hover:text-cyan-400 transition-colors font-medium">Our Tribe</a>
+            </div>
+            
+            <!-- JOIN THE ELITE Button -->
+            <div class="hidden md:block">
+                <button class="relative group px-6 py-3 text-white font-bold rounded-lg transition-all duration-300 hover:scale-105">
+                    <!-- Border Gradient -->
+                    <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 p-[1px]">
+                        <div class="w-full h-full bg-black/90 rounded-lg flex items-center justify-center backdrop-blur-sm group-hover:bg-black/80 transition-all duration-300">
+                            <span class="relative z-10 text-sm tracking-wide">JOIN THE ELITE</span>
+                        </div>
+                    </div>
+                    <!-- Hover Glow Effect -->
+                    <div class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg">
+                        <div class="w-full h-full rounded-lg bg-gradient-to-r from-blue-500/40 via-cyan-500/40 to-blue-500/40"></div>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
             <button class="md:hidden text-white">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
@@ -238,242 +267,299 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 text-center relative min-h-screen flex items-center">
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-up">
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
-                        <strong>Transform Your Body</strong><br>
-                        <span class="gradient-text">With Expert Guidance</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-                        <strong>Join our professional fitness community</strong> where expert trainers help you achieve your goals. 
-                        We provide personalized workout plans, nutrition guidance, and unwavering support to ensure your success.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
-                        <button class="modern-btn inline-block px-12 py-6 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-black rounded-2xl hover:from-orange-400 hover:to-red-400 transition-all pulse-animation">
-                            Start Free Trial
+    <section id="home" class="relative h-screen flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="img-gym/hero-section.jpeg" alt="Gym" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
+                We don't design gym<br>
+                <span class="text-blue-400">we architect power</span>
+            </h1>
+            
+            <button onclick="window.location.href='mailto:abdulrahiim231@gmail.com?subject=Get%20Ready%20Inquiry&body=I%20am%20ready%20to%20start%20my%20fitness%20journey.%20Please%20provide%20more%20information%20about%20your%20programs.'" class="relative group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-10 py-4 rounded-full text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25">
+                <span class="relative z-10">Get Ready</span>
+                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-300"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Our Tribe Section -->
+    <section id="tribe" class="relative py-20 lg:py-32 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="img-gym/tribe.jpeg" alt="Tribe" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <!-- Content Container -->
+        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
+            <div class="flex items-center min-h-[500px]">
+                <!-- Glassmorphism Text Box -->
+                <div class="w-full lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="glass rounded-2xl p-8 lg:p-12 backdrop-blur-md border border-white/10">
+                        <!-- Heading -->
+                        <h2 class="text-3xl lg:text-4xl font-black text-white mb-6 leading-tight">
+                            We Build Bodies, but We Forge Tribes.
+                        </h2>
+                        
+                        <!-- Sub-text -->
+                        <p class="text-lg lg:text-xl text-gray-200 mb-8 leading-relaxed">
+                            Join a powerful community of elite members who motivate and elevate each other towards high-performance goals.
+                        </p>
+                        
+                        <!-- JOIN THE TRIBE Button -->
+                        <button onclick="window.location.href='mailto:abdulrahiim231@gmail.com?subject=Join%20The%20Tribe&body=I%20want%20to%20join%20your%20elite%20fitness%20tribe.%20Please%20provide%20more%20information%20about%20membership%20and%20community%20benefits.'" class="relative group px-8 py-4 text-white font-bold rounded-xl transition-all duration-300 hover:scale-105">
+                            <!-- Neon Blue Glow Border -->
+                            <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 p-[2px]">
+                                <div class="w-full h-full bg-black/90 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover:bg-black/80 transition-all duration-300">
+                                    <span class="relative z-10 tracking-wide">[ JOIN THE TRIBE ]</span>
+                                </div>
+                            </div>
+                            <!-- Hover Glow Effect -->
+                            <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
+                                <div class="w-full h-full rounded-xl bg-gradient-to-r from-blue-500/50 via-cyan-500/50 to-blue-500/50"></div>
+                            </div>
+                            <!-- Additional Inner Glow -->
+                            <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-all duration-500">
+                                <div class="w-full h-full rounded-xl bg-cyan-400/20 blur-sm"></div>
+                            </div>
                         </button>
-                        <button class="modern-btn inline-block px-12 py-6 glass border-2 border-white text-white text-lg font-black rounded-2xl hover:bg-white hover:text-orange-500 transition-all">
-                            View Membership Plans
-                        </button>
-                    </div>
-                    <div class="mt-12 flex justify-center gap-8" data-aos="fade-up" data-aos-delay="400">
-                        <div class="text-center">
-                            <div class="text-4xl font-black gradient-text mb-2">10,000+</div>
-                            <div class="text-gray-400">Happy Members</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-black gradient-text-2 mb-2">50+</div>
-                            <div class="text-gray-400">Expert Trainers</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-black gradient-text mb-2">24/7</div>
-                            <div class="text-gray-400">Open Hours</div>
-                        </div>
                     </div>
                 </div>
-                <div class="relative" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Gym Workout" class="rounded-2xl shadow-2xl w-full h-auto">
+                
+                <!-- Empty Space for Balance -->
+                <div class="hidden lg:block lg:w-1/2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Performance Lab Section -->
+    <section id="lab" class="relative py-20 lg:py-32 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="img-gym/lab.jpeg" alt="Performance Lab" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+        </div>
+        
+        <!-- Content Container -->
+        <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
+            <div class="flex items-center min-h-[600px]">
+                <!-- Content Box -->
+                <div class="w-full lg:w-2/3 mx-auto text-center" data-aos="fade-up" data-aos-duration="1200">
+                    <!-- Main Heading -->
+                    <h2 class="text-4xl lg:text-6xl font-black text-white mb-8 leading-tight tracking-tight">
+                        THE PERFORMANCE LAB
+                    </h2>
+                    
+                    <!-- Sub-text Description -->
+                    <p class="text-lg lg:text-xl text-gray-200 mb-12 leading-relaxed max-w-3xl mx-auto">
+                        Every rep is measured. Every calorie is calculated. In The Lab, we use AI-driven biomechanics and real-time data to optimize your transformation. No guesswork&mdash;just pure results.
+                    </p>
+                    
+                    <!-- ANALYZE MY POTENTIAL Button -->
+                    <button onclick="window.location.href='mailto:abdulrahiim231@gmail.com?subject=Analyze%20My%20Potential&body=I%20am%20interested%20in%20analyzing%20my%20fitness%20potential%20at%20your%20Performance%20Lab.%20Please%20provide%20more%20information%20about%20your%20biometric%20and%20performance%20analysis%20services.'" class="relative group px-10 py-5 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105">
+                        <!-- White Glow Border -->
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-white via-gray-200 to-white p-[2px]">
+                            <div class="w-full h-full bg-black/90 rounded-2xl flex items-center justify-center backdrop-blur-sm group-hover:bg-black/80 transition-all duration-300">
+                                <span class="relative z-10 tracking-wider text-lg">ANALYZE MY POTENTIAL</span>
+                            </div>
+                        </div>
+                        <!-- White Glow Effect on Hover -->
+                        <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
+                            <div class="w-full h-full rounded-2xl bg-gradient-to-r from-white/60 via-gray-200/60 to-white/60"></div>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    <span class="gradient-text">Why Choose MOON UI?</span>
+    <section id="features" class="relative py-20 lg:py-32">
+        <!-- Content -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+                    FEATURES
                 </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    <strong>Everything you need</strong> to achieve your fitness goals with professional guidance
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Elite amenities designed for peak performance
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature Images Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                        <i data-lucide="dumbbell" class="w-10 h-10 text-orange-400"></i>
+                <div class="relative group overflow-hidden rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img-gym/feature1.jpeg" alt="Feature 1" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-black text-white mb-3">ELITE TRAINING</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed">Master the art of transformation with Olympic-level coaching and personalized biomechanics analysis</p>
+                            <div class="mt-4 flex items-center text-cyan-400 text-sm font-semibold">
+                                <span>TRANSFORM NOW</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Elite Training</strong></h3>
-                    <p class="text-gray-300 text-sm leading-relaxed text-center">
-                        <strong>World-class certified trainers</strong> with 10+ years experience in body transformation and athletic performance
-                    </p>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                        <i data-lucide="users" class="w-10 h-10 text-green-400"></i>
+                <div class="relative group overflow-hidden rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img-gym/feature2.jpeg" alt="Feature 2" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-black text-white mb-3">PERFORMANCE LAB</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed">Where science meets strength - AI-driven performance optimization with real-time metabolic tracking</p>
+                            <div class="mt-4 flex items-center text-cyan-400 text-sm font-semibold">
+                                <span>ANALYZE POTENTIAL</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Group Power</strong></h3>
-                    <p class="text-gray-300 text-sm leading-relaxed text-center">
-                        <strong>High-energy group workouts</strong> including CrossFit, yoga, and metabolic conditioning with expert coaching
-                    </p>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                        <i data-lucide="clock" class="w-10 h-10 text-blue-400"></i>
+                <div class="relative group overflow-hidden rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <img src="img-gym/feature.jpeg" alt="Feature 3" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-black text-white mb-3">VIP SANCTUARY</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed">Experience luxury redefined - private recovery suites, cryotherapy chambers, and elite nutrition protocols</p>
+                            <div class="mt-4 flex items-center text-cyan-400 text-sm font-semibold">
+                                <span>CLAIM EXCELLENCE</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>24/7 Elite Access</strong></h3>
-                    <p class="text-gray-300 text-sm leading-relaxed text-center">
-                        <strong>Round-the-clock premium access</strong> with state-of-the-art equipment and luxury amenities
-                    </p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                        <i data-lucide="activity" class="w-10 h-10 text-purple-400"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Bio-Tracking</strong></h3>
-                    <p class="text-gray-300 text-sm leading-relaxed text-center">
-                        <strong>Advanced biometric monitoring</strong> with real-time progress tracking and AI-powered workout optimization
-                    </p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                        <i data-lucide="zap" class="w-10 h-10 text-yellow-400"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>Performance Lab</strong></h3>
-                    <p class="text-gray-300 text-sm leading-relaxed text-center">
-                        <strong>Cutting-edge recovery systems</strong> including cryotherapy, massage guns, and sports rehabilitation
-                    </p>
-                </div>
-
-                <!-- Feature 6 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="600">
-                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-                        <i data-lucide="shield" class="w-10 h-10 text-red-400"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-white mb-3 text-center"><strong>VIP Lounge</strong></h3>
-                    <p class="text-gray-300 text-sm leading-relaxed text-center">
-                        <strong>Exclusive member facilities</strong> with luxury locker rooms, steam rooms, and nutrition bar
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    <span class="gradient-text">Membership Plans</span>
+    <!-- Membership Section -->
+    <section id="membership" class="relative py-20 lg:py-32 overflow-hidden">
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+                    MEMBERSHIP
                 </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    <strong>Choose your perfect plan</strong> designed for every fitness level and goal
+                <p class="text-xl text-gray-200 max-w-2xl mx-auto">
+                    Choose your path to excellence
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Plan 1 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-2xl font-black text-white mb-3 text-center"><strong>Starter</strong></h3>
-                    <p class="text-gray-400 mb-6 text-center text-sm"><strong>Perfect for beginners</strong> starting their transformation journey</p>
-                    <div class="text-4xl font-black text-white mb-6 text-center">
-                        <span class="gradient-text">$29</span><span class="text-gray-400">/month</span>
+            <!-- Membership Plans with Side Images -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Elite Plan with Side Image -->
+                <div class="flex flex-col lg:flex-row gap-8" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Plan Content -->
+                    <div class="flex-1 glass rounded-3xl p-8 lg:p-10 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105">
+                        <h3 class="text-2xl lg:text-3xl font-black text-white mb-2">ELITE ATHLETE</h3>
+                        <p class="text-gray-300 text-sm mb-6">For serious performance seekers</p>
+                        
+                        <div class="text-3xl lg:text-4xl font-black text-white mb-8">
+                            <span class="text-cyan-400">$149</span>
+                            <span class="text-gray-400 text-lg">/month</span>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-200">Unlimited access to all training facilities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-200">12 personal training sessions per month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-200">Performance Lab analysis & tracking</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-200">Custom nutrition protocols & planning</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="window.location.href='mailto:abdulrahiim231@gmail.com?subject=Elite%20Athlete%20Membership&body=I%20am%20interested%20in%20the%20Elite%20Athlete%20membership%20plan.%20Please%20provide%20more%20information.'" class="w-full relative group px-8 py-4 text-white font-bold rounded-xl transition-all duration-300 hover:scale-105">
+                            <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 p-[2px]">
+                                <div class="w-full h-full bg-black/90 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover:bg-black/80 transition-all duration-300">
+                                    <span class="relative z-10 tracking-wide">CHOOSE ELITE ATHLETE</span>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
+                                <div class="w-full h-full rounded-xl bg-gradient-to-r from-cyan-500/50 via-blue-500/50 to-cyan-500/50"></div>
+                            </div>
+                        </button>
                     </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Access to elite training equipment</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Comprehensive fitness assessment</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Mobile app with workout tracking</span>
-                        </li>
-                        <li class="flex items-center text-gray-500">
-                            <i data-lucide="x" class="w-5 h-5 text-gray-500 mr-3"></i>
-                            <span class="text-sm">Personal training sessions</span>
-                        </li>
-                    </ul>
-                    <button class="w-full modern-btn glass border-2 border-white text-white text-lg font-black rounded-2xl hover:bg-white hover:text-orange-500 transition-all">
-                        Choose Starter
-                    </button>
+                    
+                    <!-- Side Image -->
+                    <div class="flex-1 lg:max-w-md">
+                        <img src="img-gym/member-ship.jpeg" alt="Elite Athlete" class="w-full h-64 lg:h-full object-cover rounded-2xl">
+                    </div>
                 </div>
 
-                <!-- Plan 2 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover scale-105" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-black px-4 py-2 rounded-full">MOST POPULAR</span>
+                <!-- VIP Plan with Side Image -->
+                <div class="flex flex-col lg:flex-row gap-8" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Plan Content -->
+                    <div class="flex-1 glass rounded-3xl p-8 lg:p-10 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 relative">
+                        <!-- Popular Badge -->
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                            <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-black px-6 py-2 rounded-full">
+                                MOST POPULAR
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-2xl lg:text-3xl font-black text-white mb-2 mt-4">VIP LEGACY</h3>
+                        <p class="text-gray-300 text-sm mb-6">The ultimate fitness experience</p>
+                        
+                        <div class="text-3xl lg:text-4xl font-black text-white mb-8">
+                            <span class="text-cyan-400">$299</span>
+                            <span class="text-gray-400 text-lg">/month</span>
+                        </div>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-200">Everything in Elite Athlete Plus</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-200">Unlimited personal training & coaching</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-200">Private training suite & equipment</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-200">24/7 priority access & concierge</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="window.location.href='mailto:abdulrahiim231@gmail.com?subject=VIP%20Legacy%20Membership&body=I%20am%20interested%20in%20the%20VIP%20Legacy%20membership%20plan.%20Please%20provide%20more%20information.'" class="w-full relative group px-8 py-4 text-white font-bold rounded-xl transition-all duration-300 hover:scale-105">
+                            <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 p-[2px]">
+                                <div class="w-full h-full bg-black/90 rounded-xl flex items-center justify-center backdrop-blur-sm group-hover:bg-black/80 transition-all duration-300">
+                                    <span class="relative z-10 tracking-wide">CHOOSE VIP LEGACY</span>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl">
+                                <div class="w-full h-full rounded-xl bg-gradient-to-r from-cyan-500/50 via-blue-500/50 to-cyan-500/50"></div>
+                            </div>
+                        </button>
                     </div>
-                    <h3 class="text-2xl font-black text-white mb-3 text-center"><strong>Pro Athlete</strong></h3>
-                    <p class="text-gray-400 mb-6 text-center text-sm"><strong>For serious fitness enthusiasts</strong> who demand excellence and results</p>
-                    <div class="text-4xl font-black text-white mb-6 text-center">
-                        <span class="gradient-text">$59</span><span class="text-gray-400">/month</span>
+                    
+                    <!-- Side Image -->
+                    <div class="flex-1 lg:max-w-md">
+                        <img src="img-gym/member-ship.jpeg" alt="VIP Legacy" class="w-full h-64 lg:h-full object-cover rounded-2xl">
                     </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Everything in Starter Plus</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Unlimited group fitness classes</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">8 personal training sessions monthly</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Customized nutrition planning</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">VIP guest access (4/month)</span>
-                        </li>
-                    </ul>
-                    <button class="w-full modern-btn inline-block px-12 py-6 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-black rounded-2xl hover:from-orange-400 hover:to-red-400 transition-all pulse-animation">
-                        Choose Pro Athlete
-                    </button>
-                </div>
-
-                <!-- Plan 3 -->
-                <div class="modern-card glass glass-hover modern-border rounded-3xl p-8 accent-glow accent-glow-hover" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-2xl font-black text-white mb-3 text-center"><strong>Elite VIP</strong></h3>
-                    <p class="text-gray-400 mb-6 text-center text-sm"><strong>Ultimate fitness experience</strong> with exclusive luxury amenities and white-glove service</p>
-                    <div class="text-4xl font-black text-white mb-6 text-center">
-                        <span class="gradient-text">$99</span><span class="text-gray-400">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Everything in Pro Athlete Plus</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Unlimited personal training</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">VIP lounge and recovery suite</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Priority class booking</span>
-                        </li>
-                        <li class="flex items-center text-gray-300">
-                            <i data-lucide="check" class="w-5 h-5 text-green-400 mr-3"></i>
-                            <span class="text-sm">Complimentary guest passes</span>
-                        </li>
-                    </ul>
-                    <button class="w-full modern-btn glass border-2 border-white text-white text-lg font-black rounded-2xl hover:bg-white hover:text-orange-500 transition-all">
-                        Choose Elite VIP
-                    </button>
                 </div>
             </div>
         </div>
