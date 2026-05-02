@@ -3,813 +3,932 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIJOUTINE - Luxury Jewelry Collection</title>
+    <title>MOON UI - Premium Digital Agency | Scalable Solutions & Business Growth</title>
+    <meta name="description" content="MOON UI delivers premium digital solutions with AI-driven efficiency, clean code architecture, and measurable ROI for modern businesses.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --mesh-gradient: radial-gradient(at 40% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                           radial-gradient(at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                           radial-gradient(at 40% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            --dark-bg: #0a0a0f;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --cyan-glow: #00f2fe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: #000000;
+            background: var(--dark-bg);
+            color: white;
             font-family: 'Inter', sans-serif;
-        }
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('img/hero.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            animation: slowZoom 15s ease-in-out infinite alternate;
-        }
-        @keyframes slowZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-        .luxury-headline {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 6px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        .gold-accent {
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #FFD700, transparent);
-            margin: 2rem auto;
-        }
-        .glass-button {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        .glass-button:hover {
-            border-color: #FFD700;
-            background: rgba(255, 215, 0, 0.1);
-            transform: translateY(-2px);
-        }
-        .hero-new-bg {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('img/hero.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
-        }
-        .navbar-gradient {
-            background: rgba(255, 215, 0, 0.08);
-            backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-        }
-        .hero-overlay-card {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px);
-            max-width: 550px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-        }
-        .cta-button {
-            background: rgba(255, 215, 0, 0.08);
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            color: #FFFFF0;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
-            backdrop-filter: blur(15px);
-        }
-        .cta-button:hover {
-            background: #FFD700;
-            color: black;
-            transform: translateY(-2px);
-        }
-        .nav-link {
-            background: rgba(255, 215, 0, 0.08);
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            color: #FFFFF0;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
-            backdrop-filter: blur(15px);
-            text-decoration: none;
-        }
-        .nav-link:hover {
-            background: rgba(255, 215, 0, 0.2);
-            color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
-            border-color: #FFD700;
-        }
-        .shop-button {
-            background: rgba(255, 215, 0, 0.08);
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            color: #FFFFF0;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
-            backdrop-filter: blur(15px);
+            overflow-x: hidden;
+            position: relative;
+            scroll-behavior: smooth;
         }
 
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #D4AF37; /* Gold */
-    color: black;
-    border: none;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none; /* Shuru mein chhupa hua */
-    z-index: 1000;
-    transition: 0.3s;
-}
-
-.back-to-top:hover {
-    background-color: #b8962e;
-    transform: scale(1.1);
-}
-
-        .shop-button:hover {
-            background: rgba(255, 215, 0, 0.9);
-            color: #000000;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
-            border-color: #FFD700;
-        }
-        .collection-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.4s ease-in-out;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-        .collection-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
-            border-color: rgba(255, 215, 0, 0.5);
-        }
-        .collection-card img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            transition: transform 0.6s ease-in-out;
-            filter: brightness(0.9);
-        }
-        .collection-card:hover img {
-            transform: scale(1.15);
-            filter: brightness(1.1);
-        }
-        .collection-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.3), transparent);
-            padding: 25px 20px 40px;
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
-        .select-button {
-            background: rgba(255, 215, 0, 0.08);
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            color: #FFFFF0;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
-            backdrop-filter: blur(15px);
-            margin-top: 15px;
-        }
-        .select-button:hover {
-            background: rgba(255, 215, 0, 0.2);
-            color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
-            border-color: #FFD700;
-        }
-        .select-button.selected {
-            background: rgba(255, 215, 0, 0.9);
-            color: #000000;
-            border-color: #FFD700;
-        }
-        .collection-title {
-            font-family: 'Cinzel', serif;
-            font-size: 26px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            color: #FFFFF0;
-            text-transform: uppercase;
-            transition: all 0.4s ease-in-out;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-            margin-bottom: 15px;
-        }
-        .collection-card:hover .collection-title {
-            color: #FFD700;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.8);
-            transform: translateY(-2px);
-        }
-        .bespoke-section {
-            background: #000000;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .bespoke-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-        }
-        .bespoke-content {
-            flex: 1;
-            padding: 80px;
-            max-width: 600px;
-        }
-        .bespoke-image {
-            flex: 1;
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-        .bespoke-image img {
+        /* Premium Mesh Background */
+        .premium-bg {
+            position: fixed;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            animation: float 6s ease-in-out infinite;
-            transform-origin: center;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: var(--dark-bg);
         }
-        @keyframes float {
-            0%, 100% { transform: scale(1) translateY(0px); }
-            50% { transform: scale(1.05) translateY(-20px); }
+
+        .premium-bg::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--mesh-gradient);
+            animation: meshFloat 20s ease-in-out infinite;
         }
-        .eyebrow-heading {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 4px;
-            color: #FFD700;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.2s, shimmer 3s ease-in-out infinite 2s;
+
+        @keyframes meshFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-20px, -20px) rotate(1deg); }
+            66% { transform: translate(20px, -10px) rotate(-1deg); }
         }
-        @keyframes shimmer {
-            0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
-            50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4); }
+
+        /* Premium Glassmorphism */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .bespoke-headline {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 48px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            color: #FFFFF0;
-            text-transform: uppercase;
-            line-height: 1.2;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.4s, glow 4s ease-in-out infinite 3s;
+
+        .glass-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
-            50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.2); }
+
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px 0 rgba(31, 38, 135, 0.5);
         }
-        .bespoke-description {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            font-weight: 300;
-            color: #FFFFF0;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.6s;
+
+        /* Premium Glow Effects */
+        .glow-cyan {
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.4);
         }
-        .process-icons {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 50px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.8s;
+
+        .glow-cyan-hover:hover {
+            box-shadow: 0 0 60px rgba(0, 242, 254, 0.7);
         }
-        .process-icon {
-            text-align: center;
-            color: #FFD700;
-            transition: all 0.3s ease;
+
+        /* Typography */
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .process-icon:hover {
-            transform: translateY(-5px) scale(1.1);
-            color: #FFFFF0;
+
+        .cyan-text {
+            color: var(--cyan-glow);
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
         }
-        .process-icon i {
-            font-size: 32px;
-            margin-bottom: 10px;
-            display: block;
-            animation: iconFloat 3s ease-in-out infinite;
-            animation-delay: calc(var(--delay) * 0.5s);
-        }
-        @keyframes iconFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        .process-icon span {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .journey-button {
-            background: transparent;
-            border: 1px solid #FFD700;
-            color: #FFD700;
-            padding: 16px 40px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 1s, buttonPulse 2s ease-in-out infinite 3s;
+
+        /* Premium Cards */
+        .premium-card {
             position: relative;
             overflow: hidden;
+            border-radius: 20px;
         }
-        .journey-button::before {
+
+        .premium-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.1), transparent);
+            transition: left 0.6s ease;
         }
-        .journey-button:hover::before {
+
+        .premium-card:hover::before {
             left: 100%;
         }
-        .journey-button:hover {
-            background: #FFD700;
-            color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-        @keyframes buttonPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
-        }
-        .gold-divider {
-            width: 60px;
-            height: 1px;
-            background: #FFD700;
-            margin: 30px 0;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.5s;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .story-section {
-            background: #1a1a1a;
-            padding: 120px 0;
+
+        /* Premium Buttons */
+        .premium-btn {
             position: relative;
-        }
-        .story-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 80px;
-            align-items: center;
-        }
-        .story-image {
-            position: relative;
-            height: 600px;
             overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 12px;
         }
-        .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .story-content {
-            padding: 60px;
-            position: relative;
-        }
-        .story-content::before {
+
+        .premium-btn::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -60px;
-            width: 1px;
+            left: -100%;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent, #FFD700);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .story-headline {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 42px;
-            font-weight: 300;
-            color: #FFFFF0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.3s;
+
+        .premium-btn:hover::before {
+            left: 100%;
         }
-        .story-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            font-weight: 300;
-            color: #FFFFF0;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.5s;
-        }
-        .story-signature {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            font-weight: 300;
-            font-style: italic;
-            color: #FFD700;
-            margin-top: 50px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.8s;
-        }
-        .prominent-name {
-            font-family: 'Cinzel', serif;
-            font-size: 36px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            color: #FFFFF0;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards 0.4s;
-        }
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
+
+        /* Navigation */
+        .nav-blur {
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100vh;
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .gold-glow {
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
         }
-        .card-hover {
+
+        .mobile-menu-items {
+            padding: 2rem 1.5rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .mobile-menu-items a {
+            display: block;
+            text-align: center;
+            padding: 1.2rem 1rem;
+            margin: 0.5rem 0;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu-items a:hover {
+            color: var(--cyan-glow);
+            background: rgba(0, 242, 254, 0.2);
+            border-color: rgba(0, 242, 254, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.3);
+        }
+
+        .mobile-menu-items a:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Hamburger Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 242, 254, 0.2);
+            border-color: var(--cyan-glow);
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-btn i {
+            color: white;
             transition: all 0.3s ease;
         }
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .premium-bg::before {
+                animation: meshFloat 25s ease-in-out infinite;
+            }
         }
-        .menu-item {
-            transition: all 0.3s ease;
+
+        @media (max-width: 768px) {
+            .premium-bg::before {
+                animation: meshFloat 30s ease-in-out infinite;
+            }
+            
+            /* Mobile Navigation */
+            .nav-blur {
+                padding: 1rem 1.5rem !important;
+            }
+            
+            .nav-blur h1 {
+                font-size: 1.5rem !important;
+            }
+            
+            /* Show Mobile Menu Button */
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Mobile Typography */
+            .text-4xl {
+                font-size: 2rem !important;
+            }
+            
+            .text-6xl {
+                font-size: 3rem !important;
+            }
+            
+            .text-7xl {
+                font-size: 3.5rem !important;
+            }
+            
+            /* Mobile Cards */
+            .premium-card {
+                margin-bottom: 1rem;
+            }
+            
+            /* Mobile Buttons */
+            .premium-btn {
+                padding: 1rem 2rem !important;
+                font-size: 1rem !important;
+            }
+            
+            /* Mobile Grid */
+            .grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Mobile Sections */
+            .py-24 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            .py-16 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            
+            /* Mobile Spacing */
+            .gap-8 {
+                gap: 1rem !important;
+            }
+            
+            .gap-6 {
+                gap: 0.75rem !important;
+            }
+            
+            .gap-4 {
+                gap: 0.5rem !important;
+            }
+            
+            /* Mobile Text */
+            .text-xl {
+                font-size: 1.125rem !important;
+            }
+            
+            .text-lg {
+                font-size: 1rem !important;
+            }
+            
+            /* Mobile Paddings */
+            .p-8 {
+                padding: 1.5rem !important;
+            }
+            
+            .p-12 {
+                padding: 2rem !important;
+            }
+            
+            .px-6 {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            .px-8 {
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
         }
-        .menu-item:hover {
-            background: rgba(255, 215, 0, 0.1);
-            border-color: rgba(255, 215, 0, 0.5);
+
+        @media (max-width: 480px) {
+            /* Extra Small Mobile */
+            .nav-blur {
+                padding: 0.75rem 1rem !important;
+            }
+            
+            .nav-blur h1 {
+                font-size: 1.25rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 1.5rem !important;
+            }
+            
+            .text-6xl {
+                font-size: 2rem !important;
+            }
+            
+            .text-7xl {
+                font-size: 2.5rem !important;
+            }
+            
+            .premium-btn {
+                padding: 0.75rem 1.5rem !important;
+                font-size: 0.875rem !important;
+            }
+            
+            .w-24 {
+                width: 4rem !important;
+                height: 4rem !important;
+            }
+            
+            .w-12 {
+                width: 3rem !important;
+                height: 3rem !important;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            /* Tablet Landscape */
+            .premium-bg::before {
+                animation: meshFloat 22s ease-in-out infinite;
+            }
+        }
+
+        @media (min-width: 1441px) and (max-width: 1920px) {
+            /* Large Desktop */
+            .premium-bg::before {
+                animation: meshFloat 18s ease-in-out infinite;
+            }
+        }
+
+        @media (min-width: 1921px) {
+            /* Ultra Wide Desktop */
+            .premium-bg::before {
+                animation: meshFloat 15s ease-in-out infinite;
+            }
         }
     </style>
 </head>
-<body class="min-h-screen text-white">
-        <!-- Back to Top Button -->
-        <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
-            <i data-lucide="arrow-up"></i>
-        </button>
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 navbar-gradient py-6 px-8 sticky" onclick="scrollToSection(event)">
+<body>
+    <!-- Premium Mesh Background -->
+    <div class="premium-bg"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-items">
+            <a href="#home" onclick="closeMobileMenu()">Home</a>
+            <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+            <a href="#team" onclick="closeMobileMenu()">Team</a>
+            <a href="#about" onclick="closeMobileMenu()">About</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        </div>
+    </div>
+
+    <!-- Premium Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur py-6 px-8">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <img src="img/lago.jpeg" alt="BIJOUTINE Logo" class="w-10 h-10 rounded-full object-cover">
-                <h1 class="text-2xl font-light tracking-wider" style="font-family: 'Montserrat', sans-serif;">BIJOUTINE</h1>
+            <div class="flex items-center space-x-4">
+                <i data-lucide="moon" class="w-10 h-10" style="color: #00ffff; filter: drop-shadow(0 0 10px #00ffff);"></i>
+                <h1 class="text-4xl md:text-5xl font-black tracking-tight">
+                    <span class="gradient-text">MOON</span><span class="cyan-text"> UI</span>
+                </h1>
             </div>
-            <div class="flex items-center space-x-8">
-                <a href="#collections" class="nav-link" onclick="smoothScroll('collections')">COLLECTIONS</a>
-                <a href="#our-story" class="nav-link" onclick="smoothScroll('our-story')">OUR STORY</a>
-                <a href="#bespoke-jewelry" class="nav-link" onclick="smoothScroll('bespoke-jewelry')">BESPOKE JEWELRY</a>
-                <a href="#contact" class="nav-link" onclick="smoothScroll('contact')">CONTACT</a>
+            <div class="hidden lg:flex items-center space-x-12">
+                <a href="#home" class="text-white/80 hover:text-cyan-400 transition-all duration-300 text-xl font-semibold">Home</a>
+                <a href="#projects" class="text-white/80 hover:text-cyan-400 transition-all duration-300 text-xl font-semibold">Projects</a>
+                <a href="#team" class="text-white/80 hover:text-cyan-400 transition-all duration-300 text-xl font-semibold">Team</a>
+                <a href="#about" class="text-white/80 hover:text-cyan-400 transition-all duration-300 text-xl font-semibold">About</a>
+                <a href="#contact" class="text-white/80 hover:text-cyan-400 transition-all duration-300 text-xl font-semibold">Contact</a>
             </div>
-            <button class="shop-button">
-                SHOP NOW
+            <button class="mobile-menu-btn lg:hidden" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-8 h-8"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-new-bg min-h-screen flex items-center justify-start text-white relative px-8">
-        <div class="hero-overlay-card p-10 md:p-16 ml-4 md:ml-16 rounded-2xl">
-            <h1 class="luxury-headline text-4xl md:text-5xl leading-tight mb-6">
-                TIMELESS RADIANCE
-            </h1>
-            <p class="text-base md:text-lg mb-10 opacity-90 leading-relaxed max-w-lg">
-                Experience the art of exquisite craftsmanship. Curated jewelry designed to celebrate your unique story with elegance and grace.
-            </p>
-            <button class="cta-button px-8 py-4 rounded-lg font-bold text-lg uppercase tracking-wider">
-                EXPLORE THE COLLECTION
-            </button>
-        </div>
-    </section>
- 
-    <!-- The Collection Section -->
-    <section id="collections" class="min-h-screen py-20 px-8">
-        <div class="max-w-7xl mx-auto h-full flex items-center justify-center">
-            <h2 class="luxury-headline text-4xl md:text-5xl text-center mb-20">The Collection</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
-                <div class="collection-card">
-                    <img src="img/main1.jpeg" alt="Timeless Necklaces">
-                    <div class="collection-overlay">
-                        <h3 class="collection-title">Timeless Necklaces</h3>
-                        <button class="select-button" onclick="toggleSelection(this)">Select Now</button>
-                    </div>
+    <!-- Premium Hero Section -->
+    <section id="home" class="pt-32 pb-20 text-center relative min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4">
+                    I don't just design websites –
+                </h2>
+                <div class="text-4xl md:text-6xl lg:text-7xl font-black mb-8">
+                    <span id="typed-text" class="cyan-text"></span>
                 </div>
-                <div class="collection-card">
-                    <img src="img/main2.jpeg" alt="Iconic Bracelets">
-                    <div class="collection-overlay">
-                        <h3 class="collection-title">Iconic Bracelets</h3>
-                        <button class="select-button" onclick="toggleSelection(this)">Select Now</button>
-                    </div>
+                <p class="text-lg md:text-xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Delivering enterprise-grade digital solutions that drive measurable business growth and exceptional ROI through cutting-edge technology and strategic innovation.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I%20want%20to%20discuss%20a%20project" target="_blank" class="premium-btn inline-block px-12 py-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-lg font-black rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all glow-cyan glow-cyan-hover">
+                        Start Your Project
+                    </a>
                 </div>
-                <div class="collection-card">
-                    <img src="img/grid.jpeg" alt="Royal Rings">
-                    <div class="collection-overlay">
-                        <h3 class="collection-title">Royal Rings</h3>
-                        <button class="select-button" onclick="toggleSelection(this)">Select Now</button>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center">
+                        <div class="text-3xl font-black gradient-text mb-2">Enterprise</div>
+                        <div class="text-white/60 text-sm">Solutions</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black cyan-text mb-2">Premium</div>
+                        <div class="text-white/60 text-sm">Quality</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black gradient-text mb-2">24/7</div>
+                        <div class="text-white/60 text-sm">Support</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bespoke Jewelry Section -->
-    <section id="bespoke-jewelry" class="bespoke-section min-h-screen">
-        <div class="max-w-7xl mx-auto h-full flex items-center justify-between">
-            <div class="bespoke-content">
-                <div class="eyebrow-heading">CRAFTED FOR YOU</div>
-                <h2 class="bespoke-headline">YOUR VISION, OUR MASTERPIECE</h2>
-                <div class="gold-divider"></div>
-                <p class="bespoke-description">
-                    Our master artisans transform your dreams into reality through meticulous handcrafting and exceptional attention to detail. Each bespoke piece tells your unique story with unparalleled artistry.
+    <!-- Team Section -->
+    <section id="team" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Meet Our Leadership</span>
+                </h2>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+                    Visionary minds driving digital innovation and excellence
                 </p>
-                <div class="process-icons">
-                    <div class="process-icon" style="--delay: 0">
-                        <i data-lucide="pen-tool"></i>
-                        <span>Sketch</span>
-                    </div>
-                    <div class="process-icon" style="--delay: 1">
-                        <i data-lucide="diamond"></i>
-                        <span>Selection</span>
-                    </div>
-                    <div class="process-icon" style="--delay: 2">
-                        <i data-lucide="hammer"></i>
-                        <span>Craft</span>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Chairman & CEO -->
+                <div class="premium-card glass glass-hover rounded-2xl p-8 glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                            <i data-lucide="crown" class="w-12 h-12 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2">Abdul Rahim</h3>
+                        <p class="cyan-text font-semibold mb-3">Chairman & CEO</p>
+                        <p class="text-white/70 text-sm leading-relaxed">
+                            Dynamic business leader with proven track record of transforming enterprises through strategic digital innovation and market expansion initiatives.
+                        </p>
                     </div>
                 </div>
-                <button class="journey-button">START YOUR JOURNEY</button>
-            </div>
-            <div class="bespoke-image">
-                <img src="img/grid1.jpeg" alt="Bespoke Jewelry">
-            </div>
-        </div>
-        <div class="bespoke-image">
-            <img src="img/grid1.jpeg" alt="Bespoke Jewelry">
-        </div>
-    </section>
 
-    <!-- Our Story Section -->
-    <section id="our-story" class="story-section">
-        <div class="story-container">
-            <div class="story-image">
-                <img src="img/stoey.jpeg" alt="Master Jeweler at Work">
-            </div>
-            <div class="story-content">
-                <h2 class="story-headline">THE HEART OF BIJOUTINE</h2>
-                <p class="story-text">
-                    For three generations, the BIJOUTINE family has woven dreams into reality through the ancient art of jewelry crafting. Our master jeweler's hands tell stories of love, legacy, and devotion in every precious piece they create.
-                </p>
-                <p class="story-text">
-                    Each creation begins with a vision - your unique story transformed into wearable art. We believe that true luxury lies not in the materials we use, but in the passion and precision with which we craft every detail.
-                </p>
-                <p class="story-text">
-                    From the first sketch to the final polish, our commitment to excellence ensures that your BIJOUTINE piece will become tomorrow's heirloom, carrying forward the legacy of craftsmanship and the essence of your personal journey.
-                </p>
-                <div class="story-signature">— BIJOUTINE</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="story-section">
-        <div class="story-container">
-            <div class="hero-overlay-card p-10 md:p-16 ml-4 md:ml-16 rounded-2xl">
-                <div class="prominent-name">BIJOUTINE</div>
-                <h2 class="story-headline" style="font-size: 42px; letter-spacing: 4px; text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);">CONTACT</h2>
-                <div class="gold-divider"></div>
-                <p class="story-text" style="margin-bottom: 40px; line-height: 1.8;">
-                    We invite you to experience the BIJOUTINE difference. Whether you seek to begin your bespoke journey or explore our collections, our master artisans are ready to transform your vision into timeless elegance.
-                </p>
-                <div class="process-icons">
-                    <div class="process-icon" style="--delay: 0">
-                        <i data-lucide="map-pin"></i>
-                        <span>Visit Atelier</span>
-                    </div>
-                    <div class="process-icon" style="--delay: 1">
-                        <i data-lucide="phone"></i>
-                        <span>Private Consultation</span>
-                    </div>
-                    <div class="process-icon" style="--delay: 2">
-                        <i data-lucide="mail"></i>
-                        <span>Bespoke Inquiry</span>
+                <!-- Managing & Technical Director -->
+                <div class="premium-card glass glass-hover rounded-2xl p-8 glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                            <i data-lucide="users" class="w-12 h-12 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2">Nova</h3>
+                        <p class="cyan-text font-semibold mb-3">Managing & Technical Director</p>
+                        <p class="text-white/70 text-sm leading-relaxed">
+                            Results-driven operations expert with exceptional leadership in project delivery, team coordination, and implementing next-generation digital solutions.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section><button id="backToTop" class="back-to-top">↑</button>
 
-    <!-- Footer -->
-    <footer class="py-16 border-t border-white/20 text-center">
-        <p class="text-sm uppercase tracking-widest opacity-80">2024 BIJOUTINE - Luxury Jewelry Collection</p>
+            <!-- Team Skills -->
+            <div class="glass rounded-2xl p-12 glow-cyan" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="text-2xl font-black text-white mb-8 text-center">Our Team Skills</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <i data-lucide="palette" class="w-8 h-8 cyan-text mx-auto mb-3"></i>
+                        <h4 class="font-black text-white mb-2">UI/UX Design</h4>
+                        <p class="text-white/60 text-sm">Luxury interfaces & user experiences</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-lucide="layers" class="w-8 h-8 cyan-text mx-auto mb-3"></i>
+                        <h4 class="font-black text-white mb-2">Glassmorphism</h4>
+                        <p class="text-white/60 text-sm">Modern glass effects & transparency</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-lucide="smartphone" class="w-8 h-8 cyan-text mx-auto mb-3"></i>
+                        <h4 class="font-black text-white mb-2">Responsive Design</h4>
+                        <p class="text-white/60 text-sm">Perfect on all devices</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-lucide="code" class="w-8 h-8 cyan-text mx-auto mb-3"></i>
+                        <h4 class="font-black text-white mb-2">HTML5/CSS3</h4>
+                        <p class="text-white/60 text-sm">Semantic markup & styling</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-lucide="wind" class="w-8 h-8 cyan-text mx-auto mb-3"></i>
+                        <h4 class="font-black text-white mb-2">Tailwind CSS</h4>
+                        <p class="text-white/60 text-sm">Utility-first framework</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-lucide="zap" class="w-8 h-8 cyan-text mx-auto mb-3"></i>
+                        <h4 class="font-black text-white mb-2">JavaScript</h4>
+                        <p class="text-white/60 text-sm">Modern interactive development</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-lucide="sparkles" class="w-8 h-8 cyan-text mx-auto mb-3"></i>
+                        <h4 class="font-black text-white mb-2">Modern Design</h4>
+                        <p class="text-white/60 text-sm">Contemporary aesthetics</p>
+                    </div>
+                    <div class="text-center">
+                        <i data-lucide="gem" class="w-8 h-8 cyan-text mx-auto mb-3"></i>
+                        <h4 class="font-black text-white mb-2">Landing Pages</h4>
+                        <p class="text-white/60 text-sm">High-conversion designs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Projects Section -->
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Enterprise Solutions</span>
+                </h2>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+                    Strategic digital implementations that deliver measurable business value and competitive advantage
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 - Restaurant -->
+                <div class="premium-card glass glass-hover rounded-2xl overflow-hidden glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center" style="background-image: url('restaurant/resturent/hero.jpeg'); background-size: cover; background-position: center;">
+                        <div style="background: rgba(0,0,0,0.4); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="utensils" class="w-16 h-16 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3">MOON UI | KITCHEN</h3>
+                        <p class="text-white/70 text-sm mb-4 leading-relaxed">
+                            Revolutionary restaurant ecosystem with intelligent inventory optimization, seamless order orchestration, and elevated guest experience management for culinary excellence.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-semibold">Restaurant</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-xs font-semibold">Management</span>
+                            <span class="px-3 py-1 bg-amber-500/20 text-amber-400 rounded-full text-xs font-semibold">Food Service</span>
+                        </div>
+                        <a href="restaurant/index.html" class="inline-flex items-center cyan-text hover:text-cyan-300 transition-colors">
+                            <span class="font-semibold">View Restaurant</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Moon Gym -->
+                <div class="premium-card glass glass-hover rounded-2xl overflow-hidden glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center" style="background-image: url('moon/img-gym/hero-section.jpeg'); background-size: cover; background-position: center;">
+                        <div style="background: rgba(0,0,0,0.4); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="dumbbell" class="w-16 h-16 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3">MOON UI GYM</h3>
+                        <p class="text-white/70 text-sm mb-4 leading-relaxed">
+                            Elite fitness sanctuary featuring architectural design brilliance, immersive digital experiences, and sophisticated membership ecosystems for luxury wellness destinations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-semibold">Fitness</span>
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-xs font-semibold">Luxury</span>
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold">Premium</span>
+                        </div>
+                        <a href="moon/index.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <span class="font-semibold">View Gym Website</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 - BB Colthe -->
+                <div class="premium-card glass glass-hover rounded-2xl overflow-hidden glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center" style="background-image: url('bb colthe/colthe/bb1.jpeg'); background-size: cover; background-position: center;">
+                        <div style="background: rgba(0,0,0,0.4); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="shirt" class="w-16 h-16 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3">MOON UI | ATELIER</h3>
+                        <p class="text-white/70 text-sm mb-4 leading-relaxed">
+                            Couture fashion atelier showcasing artisanal craftsmanship, exclusive collections, and personalized styling experiences for discerning fashion connoisseurs.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-semibold">Fashion</span>
+                            <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs font-semibold">Bespoke</span>
+                            <span class="px-3 py-1 bg-rose-500/20 text-rose-400 rounded-full text-xs font-semibold">Luxury</span>
+                        </div>
+                        <a href="bb colthe/bbb.html" class="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors">
+                            <span class="font-semibold">View Atelier</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 - AI Dashboard -->
+                <div class="premium-card glass glass-hover rounded-2xl overflow-hidden glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center" style="background-image: url('dashboard/vo/New folder/dash.jpg'); background-size: cover; background-position: center;">
+                        <div style="background: rgba(0,0,0,0.4); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="bar-chart-3" class="w-16 h-16 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3">AI DASHBOARD</h3>
+                        <p class="text-white/70 text-sm mb-4 leading-relaxed">
+                            Enterprise-grade intelligence platform delivering predictive analytics, real-time visualization, and strategic insights for data-driven decision supremacy.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-xs font-semibold">Analytics</span>
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-semibold">Data</span>
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold">Business</span>
+                        </div>
+                        <a href="dashboard/vo/index.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <span class="font-semibold">View Dashboard</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 - AI Automation Suite -->
+                <div class="premium-card glass glass-hover rounded-2xl overflow-hidden glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center" style="background-image: url('ai landing page/AI-LANDING.jpg'); background-size: cover; background-position: center;">
+                        <div style="background: rgba(0,0,0,0.4); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="bot" class="w-16 h-16 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black text-white mb-3">AI Automation Suite</h3>
+                        <p class="text-white/70 text-sm mb-4 leading-relaxed">
+                            Cutting-edge AI automation ecosystem with advanced natural language comprehension, contextual intelligence, and seamless human-machine synergy.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-semibold">AI</span>
+                            <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs font-semibold">Automation</span>
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs font-semibold">Smart</span>
+                        </div>
+                        <a href="ai landing page/index.html" class="inline-flex items-center cyan-text hover:text-cyan-300 transition-colors">
+                            <span class="font-semibold">View Solution</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Moon UI Section -->
+    <section id="about" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Why Choose Moon UI?</span>
+                </h2>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+                    Strategic advantages that deliver measurable business impact and sustainable competitive advantage
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="premium-card glass glass-hover rounded-2xl p-8 glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i data-lucide="code" class="w-10 h-10 cyan-text"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3 text-center">Clean Code Architecture</h3>
+                    <p class="text-white/70 text-sm leading-relaxed text-center">
+                        Enterprise-grade code with comprehensive testing, documentation, and scalability built for long-term maintainability and team collaboration.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="premium-card glass glass-hover rounded-2xl p-8 glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i data-lucide="smartphone" class="w-10 h-10 cyan-text"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3 text-center">Responsive Design Excellence</h3>
+                    <p class="text-white/70 text-sm leading-relaxed text-center">
+                        Pixel-perfect implementations across all devices with performance optimization and accessibility compliance for maximum user engagement.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="premium-card glass glass-hover rounded-2xl p-8 glow-cyan glow-cyan-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                        <i data-lucide="cpu" class="w-10 h-10 cyan-text"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white mb-3 text-center">AI-Driven Efficiency</h3>
+                    <p class="text-white/70 text-sm leading-relaxed text-center">
+                        Intelligent automation and machine learning integration that reduces operational costs while increasing productivity and decision accuracy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Contact Section -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass rounded-3xl p-16 text-center glow-cyan" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="gradient-text">Ready to Scale Your Business?</span>
+                </h2>
+                <p class="text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Let's discuss how our premium solutions can drive your next phase of growth and deliver exceptional ROI.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                    <a href="https://wa.me/923006955087?text=Hi%20MOON%20UI%2C%20I%20want%20to%20discuss%20a%20project" target="_blank" class="premium-btn inline-block px-12 py-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-lg font-black rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all glow-cyan glow-cyan-hover">
+                        Start Your Project
+                    </a>
+                </div>
+                <div class="flex justify-center gap-6">
+                    <a href="https://wa.me/923006955087" target="_blank" class="text-white/60 hover:text-cyan-400 transition-colors">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    </a>
+                    <a href="mailto:abdulrahiim231@gmail.com" class="text-white/60 hover:text-cyan-400 transition-colors">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-white/60 hover:text-cyan-400 transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-white/60 hover:text-cyan-400 transition-colors">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="py-16 border-t border-white/10 text-center">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-8">
+                <p class="text-sm uppercase tracking-widest font-mono gradient-text mb-2">MOON UI</p>
+                <p class="text-xs text-white/60">Premium Digital Agency | Enterprise Solutions | Measurable ROI</p>
+            </div>
+            <div class="text-center">
+                <p class="text-xs text-white/50 mb-2">Contact: abdulrahiim231@gmail.com | WhatsApp: +92 300 6955087</p>
+                <p class="text-xs text-white/40">© 2024 MOON UI. All rights reserved. | Enterprise-grade digital solutions</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top premium-btn glass glass-hover rounded-full p-4 glow-cyan glow-cyan-hover">
+        <i data-lucide="arrow-up" class="w-6 h-6 text-white"></i>
+    </button>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            lucide.createIcons();
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
         });
-        
-        function toggleSelection(button) {
-            // Remove selected class from all buttons
-            const allButtons = document.querySelectorAll('.select-button');
-            allButtons.forEach(btn => btn.classList.remove('selected'));
-            
-            // Add selected class to clicked button
-            button.classList.add('selected');
-            button.textContent = 'Selected';
-            
-            // Reset other buttons text
-            allButtons.forEach(btn => {
-                if (btn !== button) {
-                    btn.textContent = 'Select Now';
-                }
-            });
-        }
-        
-        function smoothScroll(sectionId) {
-            event.preventDefault();
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-        function scrollToSection(event) {
-            event.preventDefault();
-            const target = event.target;
-            if (target.tagName === 'A' && target.getAttribute('href').startsWith('#')) {
-                const sectionId = target.getAttribute('href').substring(1);
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    const navbarHeight = 80; // Height of fixed navbar
-                    const sectionTop = section.offsetTop - navbarHeight;
-                    
-                    // Enhanced smooth scrolling with easing
-                    window.scrollTo({
-                        top: sectionTop,
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Typed.js Configuration
+        new Typed('#typed-text', {
+            strings: [
+                'I Architect Scalable Solutions.',
+                'I Optimize for High-Performance.',
+                'I Design for Business Growth.',
+                'I Deliver Results Clients Love.'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            startDelay: 500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    
-                    // Add visual feedback for active section
-                    const allSections = document.querySelectorAll('section');
-                    allSections.forEach(sec => sec.classList.remove('active-section'));
-                    section.classList.add('active-section');
-                    
-                    // Add scroll progress indicator
-                    updateScrollProgress(sectionId);
-                }
-            }
-        }
-        
-        function updateScrollProgress(sectionId) {
-            const navbarLinks = document.querySelectorAll('.nav-link');
-            navbarLinks.forEach(link => {
-                const href = link.getAttribute('href').substring(1);
-                if (href === sectionId) {
-                    link.style.color = '#FFD700';
-                    link.style.transform = 'scale(1.1)';
-                } else {
-                    link.style.color = '#FFFFF0';
-                    link.style.transform = 'scale(1)';
                 }
             });
-        }
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
         
-        function openWhatsApp() {
-            window.open('https://wa.me/1234567890', '_blank');
-        }
-        function openWhatsApp() {
-            window.open('https://wa.me/1234567890', '_blank');
-        }
-        
-        // Enhanced smooth scroll functionality with improved easing and visual feedback
-        function scrollToSection(event) {
-            event.preventDefault();
-            const target = event.target;
-            if (target.tagName === 'A' && target.getAttribute('href').startsWith('#')) {
-                const sectionId = target.getAttribute('href').substring(1);
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    const navbarHeight = 80; // Height of fixed navbar
-                    const sectionTop = section.offsetTop - navbarHeight;
-                    
-                    // Enhanced smooth scrolling with easing
-                    window.scrollTo({
-                        top: sectionTop,
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Add visual feedback for active section
-                    const allSections = document.querySelectorAll('section');
-                    allSections.forEach(sec => sec.classList.remove('active-section'));
-                    section.classList.add('active-section');
-                    
-                    // Add scroll progress indicator
-                    updateScrollProgress(sectionId);
-                }
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
             }
-        }
-        
-        function updateScrollProgress(sectionId) {
-            const navbarLinks = document.querySelectorAll('.nav-link');
-            navbarLinks.forEach(link => {
-                const href = link.getAttribute('href').substring(1);
-                if (href === sectionId) {
-                    link.style.color = '#FFD700';
-                    link.style.transform = 'scale(1.1)';
-                } else {
-                    link.style.color = '#FFFFF0';
-                    link.style.transform = 'scale(1)';
-                }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        }
-const topBtn = document.getElementById('backToTop');
+        });
 
-window.onscroll = function() {
-    // Agar 300px niche aa gaye toh button dikhao
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        topBtn.style.display = "block";
-        topBtn.style.opacity = '1';
-    } else {
-        topBtn.style.display = "none";
-        topBtn.style.opacity = '0';
-    }
-};
-
-topBtn.onclick = function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-};
+        // Premium mesh animation
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            const bg = document.querySelector('.premium-bg::before');
+            if (bg) {
+                const xOffset = (x - 0.5) * 20;
+                const yOffset = (y - 0.5) * 20;
+                document.querySelector('.premium-bg').style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            }
+        });
     </script>
 </body>
 </html>
